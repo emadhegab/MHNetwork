@@ -16,7 +16,7 @@ import Foundation
 public struct Environment {
 
     /// Base URL of the environment with default value
-    public var host: String?
+    public var host: String
 
     /// This is the list of common headers which will be part of each Request
     /// Some headers value maybe overwritten by Request's own headers
@@ -24,6 +24,10 @@ public struct Environment {
 
     /// Cache policy
     public var cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+
+    public init(host: String) {
+        self.host = host
+    }
 
 }
 

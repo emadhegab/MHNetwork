@@ -8,9 +8,7 @@
 
 
 public class NetworkDispatcher: Dispatcher {
-    typealias StringDict = [String: Any]
     private var environment: Environment
-    private var defaultHeader: StringDict!
     private var session: URLSession
 
     required public init(environment: Environment,
@@ -38,9 +36,8 @@ public class NetworkDispatcher: Dispatcher {
     private func prepareURLRequest(for request: Request,
                                    onComplete: @escaping (URLRequest) -> Void,
                                    onError: @escaping (NetworkErrors) -> Void) throws {
-        guard let host = environment.host else { onError(NetworkErrors.badInput); return }
         // Compose the url
-        let fullUrl = "\(host)/\(request.path)"
+        let fullUrl = "\(environment.host)/\(request.path)"
         var urlRequest: URLRequest!
 
         // Working with parameters

@@ -11,33 +11,34 @@ import XCTest
 
 let timeout: TimeInterval = 10
 
-private class MockRequest: Request {
+private enum MockQuoteRequest: Request {
 
-    var body: Bool = false
-    init(body: Bool) {
-        self.body = body
-    }
+    case getRandomQuote
+
     var path: String {
-        return "posts/10"
+        return "quotes/random/"
     }
+
     var method: HTTPMethod {
-        return .get
-    }
-    var parameters: RequestParams {
-
-        if body {
-            return .body(["key": "value"])
-        } else {
-            return .url(["key": "value"])
+        switch self {
+        case .getRandomQuote:
+            return .get
         }
+    }
 
+    var parameters: RequestParams {
+        return .url(nil)
     }
-    var headers: [String: Any]? {
-        return ["Content-Type":"application/json"]
+
+    var headers: [String : Any]? {
+        return ["Authorization": "xyz"]
     }
+
     var dataType: DataType {
         return .data
     }
+
+
 
 }
 
@@ -70,29 +71,40 @@ private class MockBadRequest: Request {
 
 }
 
-private class MockTask<T: Codable>: MHNetwork.Operation {
+private class MockQuoteTask<T: Codable>: MHNetwork.Operation {
     var shouldFail = false
     var body: Bool = false
     var request: Request {
-        return MockRequest(body: body)
+        return MockQuoteRequest.getRandomQuote
     }
 
     func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (NetworkErrors) -> Void) {
+
         do {
-            if shouldFail {
-                onError(NetworkErrors.serverReturnedError(ServerErrorResponse(code: "500",
-                                                                              message: "Something wrong happened",
-                                                                              detail: nil)))
-            } else {
-                do {
-                    let decoder = JSONDecoder()
-                    let user = try decoder.decode(T.self, from: TestData.dummyUserJSON.data(using: .utf8)!)
-                    print(user)
-                    completed(user)
-                } catch {
-                    print(error)
+            try dispatcher.execute(request: self.request, completion: { (response) in
+                switch response {
+                case .data(let data):
+                    do {
+                        let decoder = JSONDecoder()
+                        //                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+                        //                        uncomment this in case you have some json properties in Snake Case and you just want to decode it to camel Case... workes only for swift 4.1
+                        let object = try decoder.decode(T.self, from: data)
+                        completed(object)
+                    } catch let error {
+                        onError(NetworkErrors.parsingError(error.localizedDescription))
+                    }
+                    break
+                case .error(_, let networkError):
+                    guard let error = networkError else { break }
+                    onError(error)
+                    break
+                default: break
+
                 }
-            }
+            }, onError: onError)
+        } catch {
+            guard let safeError = error as? NetworkErrors else { return }
+            onError(safeError)
         }
     }
 }
@@ -140,11 +152,18 @@ private class MockUser: Codable {
     let access_token: String
 }
 
+struct MockQuote: Codable {
+    let quote: String
+    let author: String
+}
+
+
 class NetworkManagerTests: XCTestCase {
 
     var networkDispatcher: NetworkDispatcher!
-    fileprivate let mockTask = MockTask<MockUser>()
+    fileprivate let mockTask = MockQuoteTask<MockQuote>()
     fileprivate let mockBadTask = MockBadTask<MockUser>()
+    var env: Environment!
 
     var isReachable: Bool {
         return Reachability()?.isReachable ?? false
@@ -152,8 +171,7 @@ class NetworkManagerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        var env = Environment()
-        env.host = sampleURL
+        env = Environment(host: sampleURL)
         env.headers = ["Authorization" : "1234"]
         let session = URLSession(configuration: URLSessionConfiguration.default)
         networkDispatcher = NetworkDispatcher(environment: env, session: session)
@@ -177,13 +195,23 @@ class NetworkManagerTests: XCTestCase {
 
         waitForExpectations(timeout: timeout, handler: nil)
     }
+
     func testNetworkConnectability() {
         let expectation = self.expectation(description: "network connected")
 
         if !isReachable {
              XCTFail("No Internet")
         } else {
-            expectation.fulfill()
+            let networkDispatcher = NetworkDispatcher(environment: env, session: URLSession(configuration: .default))
+            let quoteTask = MockQuoteTask<MockQuote>()
+            quoteTask.exeute(in: networkDispatcher, completed: { (quote) in
+                DispatchQueue.main.async {
+                    XCTAssertNotNil(quote)
+                    expectation.fulfill()
+                }
+            }) { (error) in
+                XCTFail()
+            }
         }
         waitForExpectations(timeout: timeout, handler: nil)
     }
