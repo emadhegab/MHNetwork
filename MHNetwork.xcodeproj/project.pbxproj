@@ -8,8 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		FD75387920FCBCC700F99D83 /* MHNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD75386F20FCBCC700F99D83 /* MHNetwork.framework */; };
-		FD75387E20FCBCC700F99D83 /* MHNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75387D20FCBCC700F99D83 /* MHNetworkTests.swift */; };
 		FD75388020FCBCC700F99D83 /* MHNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = FD75387220FCBCC700F99D83 /* MHNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD75389020FCBCF100F99D83 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388A20FCBCF100F99D83 /* Environment.swift */; };
+		FD75389120FCBCF100F99D83 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388B20FCBCF100F99D83 /* Response.swift */; };
+		FD75389220FCBCF100F99D83 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388C20FCBCF100F99D83 /* Request.swift */; };
+		FD75389420FCBCF100F99D83 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388E20FCBCF100F99D83 /* Operation.swift */; };
+		FD75389520FCBCF100F99D83 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */; };
+		FD75389720FCC20900F99D83 /* ApplicationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75389620FCC20900F99D83 /* ApplicationErrors.swift */; };
+		FD75389920FCC44100F99D83 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75389820FCC44100F99D83 /* SwiftyJSON.swift */; };
+		FD75389D20FCC4A700F99D83 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75389C20FCC4A700F99D83 /* Reachability.swift */; };
+		FDCC0B6F20FCC9A100092F44 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */; };
+		FDCC0B7020FCC9A100092F44 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6E20FCC9A100092F44 /* NetworkManagerTest.swift */; };
+		FDCC0B7220FCCD4C00092F44 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B7120FCCD4C00092F44 /* TestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +33,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1224D3683B44013E9DC5F4D /* Pods_MHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD75386F20FCBCC700F99D83 /* MHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD75387220FCBCC700F99D83 /* MHNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNetwork.h; sourceTree = "<group>"; };
 		FD75387320FCBCC700F99D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD75387820FCBCC700F99D83 /* MHNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD75387D20FCBCC700F99D83 /* MHNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHNetworkTests.swift; sourceTree = "<group>"; };
 		FD75387F20FCBCC700F99D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD75388A20FCBCF100F99D83 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		FD75388B20FCBCF100F99D83 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		FD75388C20FCBCF100F99D83 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FD75388E20FCBCF100F99D83 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		FD75389620FCC20900F99D83 /* ApplicationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationErrors.swift; sourceTree = "<group>"; };
+		FD75389820FCC44100F99D83 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		FD75389C20FCC4A700F99D83 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
+		FDCC0B6E20FCC9A100092F44 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
+		FDCC0B7120FCCD4C00092F44 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +71,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A7EA4C64E447A2FC0BA5B27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1224D3683B44013E9DC5F4D /* Pods_MHNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FD75386520FCBCC700F99D83 = {
 			isa = PBXGroup;
 			children = (
 				FD75387120FCBCC700F99D83 /* MHNetwork */,
 				FD75387C20FCBCC700F99D83 /* MHNetworkTests */,
 				FD75387020FCBCC700F99D83 /* Products */,
+				9A7EA4C64E447A2FC0BA5B27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +101,9 @@
 		FD75387120FCBCC700F99D83 /* MHNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				FD75389A20FCC44800F99D83 /* Helpers */,
+				FDCC0C0D20FCEC5700092F44 /* Network */,
+				FD75389620FCC20900F99D83 /* ApplicationErrors.swift */,
 				FD75387220FCBCC700F99D83 /* MHNetwork.h */,
 				FD75387320FCBCC700F99D83 /* Info.plist */,
 			);
@@ -80,10 +113,41 @@
 		FD75387C20FCBCC700F99D83 /* MHNetworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD75387D20FCBCC700F99D83 /* MHNetworkTests.swift */,
+				FDCC0B6E20FCC9A100092F44 /* NetworkManagerTest.swift */,
+				FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */,
+				FDCC0B7120FCCD4C00092F44 /* TestData.swift */,
 				FD75387F20FCBCC700F99D83 /* Info.plist */,
 			);
 			path = MHNetworkTests;
+			sourceTree = "<group>";
+		};
+		FD75389A20FCC44800F99D83 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FD75389B20FCC45900F99D83 /* 3rd Party */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FD75389B20FCC45900F99D83 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				FD75389C20FCC4A700F99D83 /* Reachability.swift */,
+				FD75389820FCC44100F99D83 /* SwiftyJSON.swift */,
+			);
+			path = "3rd Party";
+			sourceTree = "<group>";
+		};
+		FDCC0C0D20FCEC5700092F44 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FD75388A20FCBCF100F99D83 /* Environment.swift */,
+				FD75388B20FCBCF100F99D83 /* Response.swift */,
+				FD75388C20FCBCF100F99D83 /* Request.swift */,
+				FD75388E20FCBCF100F99D83 /* Operation.swift */,
+				FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD75389120FCBCF100F99D83 /* Response.swift in Sources */,
+				FD75389720FCC20900F99D83 /* ApplicationErrors.swift in Sources */,
+				FD75389220FCBCF100F99D83 /* Request.swift in Sources */,
+				FD75389520FCBCF100F99D83 /* NetworkDispatcher.swift in Sources */,
+				FD75389420FCBCF100F99D83 /* Operation.swift in Sources */,
+				FD75389920FCC44100F99D83 /* SwiftyJSON.swift in Sources */,
+				FD75389D20FCC4A700F99D83 /* Reachability.swift in Sources */,
+				FD75389020FCBCF100F99D83 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD75387E20FCBCC700F99D83 /* MHNetworkTests.swift in Sources */,
+				FDCC0B7220FCCD4C00092F44 /* TestData.swift in Sources */,
+				FDCC0B7020FCC9A100092F44 /* NetworkManagerTest.swift in Sources */,
+				FDCC0B6F20FCC9A100092F44 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -325,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -389,6 +463,7 @@
 		FD75388720FCBCC700F99D83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XF42ZHPGY;
 				INFOPLIST_FILE = MHNetworkTests/Info.plist;
@@ -407,6 +482,7 @@
 		FD75388820FCBCC700F99D83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XF42ZHPGY;
 				INFOPLIST_FILE = MHNetworkTests/Info.plist;
