@@ -7,19 +7,19 @@
 //
 
 
-class NetworkDispatcher: Dispatcher {
+public class NetworkDispatcher: Dispatcher {
     typealias StringDict = [String: Any]
     private var environment: Environment
     private var defaultHeader: StringDict!
     private var session: URLSession
 
-    required init(environment: Environment,
+    required public init(environment: Environment,
                   session: URLSession) {
         self.environment = environment
         self.session = session
     }
 
-    func execute(request: Request, completion: @escaping (Response) -> Void,
+    public func execute(request: Request, completion: @escaping (Response) -> Void,
                         onError: @escaping (NetworkErrors) -> Void) throws {
 
         try self.prepareURLRequest(for: request, onComplete: { [weak self] (rq) in

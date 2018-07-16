@@ -31,7 +31,7 @@ public struct Environment {
 /// by calling the underlyning layer (maybe URLSession, Alamofire
 /// or just a fake dispatcher which return mocked results).
 /// As output for a Request it should provide a Response.
-protocol Dispatcher {
+public protocol Dispatcher {
 
     /// Configure the dispatcher with an environment
     ///

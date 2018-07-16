@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Operation {
+public protocol Operation {
 
     associatedtype Output
 
