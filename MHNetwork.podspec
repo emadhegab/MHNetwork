@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MHNetwork"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "An implementation for protocol oriented network layer"
 
   # This description is used to generate tags and improve search results.
@@ -62,12 +62,12 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
   s.swift_version = "4.1"
-  s.platform     = :ios, "8.0"
+  # s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = "8.0"
   # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
+  s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
 
 
@@ -87,7 +87,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "MHNetwork/**/*.{swift}"
+  s.source_files  = "Classes", "MHNetwork/**/*.{swift,plist}"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

@@ -164,10 +164,7 @@ class NetworkManagerTests: XCTestCase {
     fileprivate let mockTask = MockQuoteTask<MockQuote>()
     fileprivate let mockBadTask = MockBadTask<MockUser>()
     var env: Environment!
-
-    var isReachable: Bool {
-        return Reachability()?.isReachable ?? false
-    }
+ 
 
     override func setUp() {
         super.setUp()
@@ -199,19 +196,15 @@ class NetworkManagerTests: XCTestCase {
     func testNetworkConnectability() {
         let expectation = self.expectation(description: "network connected")
 
-        if !isReachable {
-             XCTFail("No Internet")
-        } else {
-            let networkDispatcher = NetworkDispatcher(environment: env, session: URLSession(configuration: .default))
-            let quoteTask = MockQuoteTask<MockQuote>()
-            quoteTask.exeute(in: networkDispatcher, completed: { (quote) in
-                DispatchQueue.main.async {
-                    XCTAssertNotNil(quote)
-                    expectation.fulfill()
-                }
-            }) { (error) in
-                XCTFail()
+        let networkDispatcher = NetworkDispatcher(environment: env, session: URLSession(configuration: .default))
+        let quoteTask = MockQuoteTask<MockQuote>()
+        quoteTask.exeute(in: networkDispatcher, completed: { (quote) in
+            DispatchQueue.main.async {
+                XCTAssertNotNil(quote)
+                expectation.fulfill()
             }
+        }) { (error) in
+            XCTFail()
         }
         waitForExpectations(timeout: timeout, handler: nil)
     }

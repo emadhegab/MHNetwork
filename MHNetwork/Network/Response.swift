@@ -58,9 +58,7 @@ public enum Response {
 
     private static func handleNetworkError(status: Int, error: Error?, data: Data?) -> Response {
         // Handle the error and convert it to application friendly error
-        let isReachable = Reachability()?.isReachable ?? false
 
-        if isReachable {
             if status == 401 {
                 return .error(status, NetworkErrors.unauthorized)
             } else if  let error = error   ,
@@ -71,9 +69,6 @@ public enum Response {
             } else {
                 return .error(status, Response.genericError(status, message: nil))
             }
-        } else {
-             return .error(status, NetworkErrors.noInternet)
-        }
     }
 
     private static func parseServerError(_ status: Int, data: Data?) -> NetworkErrors {
