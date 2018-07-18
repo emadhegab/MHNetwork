@@ -43,6 +43,5 @@ script:
 
 after_success:
   - if [ $COVERAGE == "YES" ]; then
-      export CODECOV_TOKEN="1521a0fc-8401-4c98-b0aa-b307c02acdcb"
-      bash <(curl -s https://codecov.io/bash);
+      bash <(curl -s https://codecov.io/bash) -t "1521a0fc-8401-4c98-b0aa-b307c02acdcb";
     fi

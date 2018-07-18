@@ -15,7 +15,7 @@ public enum Response {
     case data(_: Data)
     case error(_: Int?, _: NetworkErrors?)
 
-    init(_ response: (r: HTTPURLResponse?, data: Data?, error: Error?), for request: Request) {
+    public init(_ response: (r: HTTPURLResponse?, data: Data?, error: Error?), for request: Request) {
 
         guard let serverResponse = response.r else {
             self = .error(500, NetworkErrors.noData)

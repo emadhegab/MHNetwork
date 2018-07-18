@@ -43,6 +43,12 @@ public struct ServerErrorResponse: Equatable, CustomStringConvertible {
     public var description: String {
             return message ?? "Unresolved Error"
     }
+
+    public init(code: String?, message: String?, detail: String?) {
+        self.code = code
+        self.message = message
+        self.detail = detail
+    }
 }
 
 public func == (lhs: ServerErrorResponse, rhs: ServerErrorResponse) -> Bool {
@@ -50,7 +56,7 @@ public func == (lhs: ServerErrorResponse, rhs: ServerErrorResponse) -> Bool {
 }
 
 extension ServerErrorResponse {
-    init(json: JSON) {
+    public init(json: JSON) {
         self.init(code: json["code"].stringValue, message: json["message"].stringValue, detail: json["detail"].stringValue)
     }
 }
