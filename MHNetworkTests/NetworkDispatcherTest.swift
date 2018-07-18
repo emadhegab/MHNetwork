@@ -182,6 +182,10 @@ class NetworkDispatcherTests: XCTestCase {
         super.tearDown()
     }
 
+    func testBadURL() {
+        
+    }
+
     func testBadRequest() {
         let expectation = self.expectation(description: "network failed to connect")
         mockBadTask.exeute(in: networkDispatcher, completed: { _ in
