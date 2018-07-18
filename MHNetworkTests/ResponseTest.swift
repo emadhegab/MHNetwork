@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import MHNetwork
 
 struct RequestMock: Request {
@@ -28,6 +29,130 @@ class ResponseTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+
+    func testEmptyResponseWithSuccessStatus() {
+        let response = Response((r: TestData.succeededHttpResponse, data: nil, error: nil), for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(200))
+            expect(error).to(equal(NetworkErrors.noData))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+    func testFailWithURLWithCanceledError() {
+        let bodyContent = "test-body-data"
+        let error = NSError(domain: NSURLErrorDomain.description, code: URLError.cancelled.rawValue,
+                            userInfo: [NSLocalizedDescriptionKey : "Cancelled"])
+        let response = Response((r: TestData.failedHttpResponse,
+                                 data: bodyContent.data(using: .utf8),
+                                 error: error),
+                                for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(500))
+            expect(error).to(equal(NetworkErrors.serverReturnedError(ServerErrorResponse(code: "500", message: "General Server Error", detail: nil))))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+    func testFailWithURLWithNoCodeError() {
+        let bodyContent = "test-body-data"
+        let error = NSError(domain: NSURLErrorDomain.description, code: 0,
+                            userInfo: [NSLocalizedDescriptionKey : "Object does not exist"])
+        let response = Response((r: TestData.failedHttpResponse,
+                                 data: bodyContent.data(using: .utf8),
+                                 error: error),
+                                for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(500))
+            expect(error).to(equal(NetworkErrors.noData))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+
+    func testFailWithURLError() {
+        let bodyContent = "test-body-data"
+        let error = NSError(domain: NSURLErrorDomain.description, code: URLError.timedOut.rawValue,
+                            userInfo: [NSLocalizedDescriptionKey : "Object timed out"])
+        let response = Response((r: TestData.failedHttpResponse,
+                                 data: bodyContent.data(using: .utf8),
+                                 error: error),
+                                for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(500))
+            expect(error).to(equal(NetworkErrors.noInternet))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+
+    func testFailWithError() {
+        let bodyContent = "test-body-data"
+        let error = NSError(domain: "", code: 0,
+                            userInfo: [NSLocalizedDescriptionKey : "Object does not exist"])
+        let response = Response((r: TestData.failedHttpResponse,
+                                 data: bodyContent.data(using: .utf8),
+                                 error: error),
+                                for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(500))
+            expect(error).to(equal(NetworkErrors.noData))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+
+    func testUnspecifiedResponseError() {
+        let response = Response((r: TestData.unspecifiedHttpResponse, data: nil, error: nil), for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(0))
+            expect(error).to(equal(NetworkErrors.serverReturnedError(ServerErrorResponse(code: "0", message: "General Server Error", detail: nil))))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+
+    func testFailedResponseUnAuthorized() {
+        let bodyContent = "test-body-data"
+        let response = Response((r: TestData.unAuthorizedHttpResponse, data: bodyContent.data(using: .utf8), error: nil), for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(401))
+            expect(error).to(equal(NetworkErrors.unauthorized))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+
+    func testFailedResponse() {
+        let bodyContent = "test-body-data"
+        let response = Response((r: TestData.failedHttpResponse, data: bodyContent.data(using: .utf8), error: nil), for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(500))
+            expect(error).to(equal(NetworkErrors.serverReturnedError(ServerErrorResponse(code: "500", message: "General Server Error", detail: nil))))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
+    }
+
+    func testEmptyURLResponseFailure() {
+        let bodyContent = "test-body-data"
+        let response = Response((r: nil, data: bodyContent.data(using: .utf8), error: nil), for: RequestMock())
+        switch response {
+        case .error(let statusCode, let error):
+            expect(statusCode).to(equal(500))
+            expect(error).to(equal(NetworkErrors.noData))
+        default:
+            XCTFail("Response type should be of .error instead of \(type(of: response))")
+        }
     }
 
     func testSucceededResponse() {

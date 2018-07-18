@@ -147,8 +147,8 @@ private class MockBadTask<T: Codable>: MHNetwork.Operation {
         }
     }
 }
-private class MockUser: Codable {
 
+private class MockUser: Codable {
     let access_token: String
 }
 
@@ -158,7 +158,7 @@ struct MockQuote: Codable {
 }
 
 
-class NetworkManagerTests: XCTestCase {
+class NetworkDispatcherTests: XCTestCase {
 
     var networkDispatcher: NetworkDispatcher!
     fileprivate let mockTask = MockQuoteTask<MockQuote>()
@@ -181,6 +181,7 @@ class NetworkManagerTests: XCTestCase {
         networkDispatcher = nil
         super.tearDown()
     }
+
     func testBadRequest() {
         let expectation = self.expectation(description: "network failed to connect")
         mockBadTask.exeute(in: networkDispatcher, completed: { _ in

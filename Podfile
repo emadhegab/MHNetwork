@@ -8,7 +8,8 @@ target 'MHNetwork' do
 pod 'SwiftyJSON'
   target 'MHNetworkTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
   end
 
 end

@@ -14,12 +14,12 @@
 		FD75389020FCBCF100F99D83 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388A20FCBCF100F99D83 /* Environment.swift */; };
 		FD75389120FCBCF100F99D83 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388B20FCBCF100F99D83 /* Response.swift */; };
 		FD75389220FCBCF100F99D83 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388C20FCBCF100F99D83 /* Request.swift */; };
-		FD75389420FCBCF100F99D83 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388E20FCBCF100F99D83 /* Operation.swift */; };
 		FD75389520FCBCF100F99D83 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */; };
 		FD75389720FCC20900F99D83 /* ApplicationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75389620FCC20900F99D83 /* ApplicationErrors.swift */; };
 		FD75389D20FCC4A700F99D83 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75389C20FCC4A700F99D83 /* Reachability.swift */; };
+		FDA192B220FE4944001C586F /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA192B120FE4944001C586F /* Operations.swift */; };
 		FDCC0B6F20FCC9A100092F44 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */; };
-		FDCC0B7020FCC9A100092F44 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6E20FCC9A100092F44 /* NetworkManagerTest.swift */; };
+		FDCC0B7020FCC9A100092F44 /* NetworkDispatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */; };
 		FDCC0B7220FCCD4C00092F44 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B7120FCCD4C00092F44 /* TestData.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,12 +48,12 @@
 		FD75388A20FCBCF100F99D83 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		FD75388B20FCBCF100F99D83 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		FD75388C20FCBCF100F99D83 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		FD75388E20FCBCF100F99D83 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		FD75389620FCC20900F99D83 /* ApplicationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationErrors.swift; sourceTree = "<group>"; };
 		FD75389C20FCC4A700F99D83 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FDA192B120FE4944001C586F /* Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
-		FDCC0B6E20FCC9A100092F44 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
+		FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcherTest.swift; sourceTree = "<group>"; };
 		FDCC0B7120FCCD4C00092F44 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +133,7 @@
 		FD75387C20FCBCC700F99D83 /* MHNetworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				FDCC0B6E20FCC9A100092F44 /* NetworkManagerTest.swift */,
+				FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */,
 				FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */,
 				FDCC0B7120FCCD4C00092F44 /* TestData.swift */,
 				FD75387F20FCBCC700F99D83 /* Info.plist */,
@@ -163,7 +163,7 @@
 				FD75388A20FCBCF100F99D83 /* Environment.swift */,
 				FD75388B20FCBCF100F99D83 /* Response.swift */,
 				FD75388C20FCBCF100F99D83 /* Request.swift */,
-				FD75388E20FCBCF100F99D83 /* Operation.swift */,
+				FDA192B120FE4944001C586F /* Operations.swift */,
 				FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */,
 			);
 			path = Network;
@@ -283,10 +283,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MHNetworkTests/Pods-MHNetworkTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,9 +345,9 @@
 				FD75389720FCC20900F99D83 /* ApplicationErrors.swift in Sources */,
 				FD75389220FCBCF100F99D83 /* Request.swift in Sources */,
 				FD75389520FCBCF100F99D83 /* NetworkDispatcher.swift in Sources */,
-				FD75389420FCBCF100F99D83 /* Operation.swift in Sources */,
 				FD75389D20FCC4A700F99D83 /* Reachability.swift in Sources */,
 				FD75389020FCBCF100F99D83 /* Environment.swift in Sources */,
+				FDA192B220FE4944001C586F /* Operations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDCC0B7220FCCD4C00092F44 /* TestData.swift in Sources */,
-				FDCC0B7020FCC9A100092F44 /* NetworkManagerTest.swift in Sources */,
+				FDCC0B7020FCC9A100092F44 /* NetworkDispatcherTest.swift in Sources */,
 				FDCC0B6F20FCC9A100092F44 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

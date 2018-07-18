@@ -16,6 +16,19 @@ struct TestData {
                                                        statusCode: 200,
                                                        httpVersion: "1.0",
                                                        headerFields: nil)
+    static let failedHttpResponse = HTTPURLResponse(url: URL(string: sampleURL)!,
+                                                    statusCode: 500,
+                                                    httpVersion: "1.0",
+                                                    headerFields: nil)
+    static let unAuthorizedHttpResponse = HTTPURLResponse(url: URL(string: sampleURL)!,
+                                                    statusCode: 401,
+                                                    httpVersion: "1.0",
+                                                    headerFields: nil)
+
+    static let unspecifiedHttpResponse = HTTPURLResponse(url: URL(string: sampleURL)!,
+                                                          statusCode: 0,
+                                                          httpVersion: "1.0",
+                                                          headerFields: nil)
     static let dummyUserJSON = """
                                     {
                                         "access_token": "AN_ACCESS_TOKEN"
