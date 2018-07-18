@@ -13,6 +13,7 @@ let timeout: TimeInterval = 10
 
 private enum MockQuoteRequest: Request {
 
+
     case getRandomQuote
 
     var path: String {
@@ -71,9 +72,9 @@ private class MockBadRequest: Request {
 
 }
 
-private class MockQuoteTask<T: Codable>: MHNetwork.Operation {
-    var shouldFail = false
+private class MockQuoteTask<T: Codable>: Operations {
     var body: Bool = false
+
     var request: Request {
         return MockQuoteRequest.getRandomQuote
     }
@@ -109,7 +110,8 @@ private class MockQuoteTask<T: Codable>: MHNetwork.Operation {
     }
 }
 
-private class MockBadTask<T: Codable>: MHNetwork.Operation {
+
+private class MockBadTask<T: Codable>: Operations {
 
     var body: Bool = false
     var request: Request {
@@ -183,7 +185,19 @@ class NetworkDispatcherTests: XCTestCase {
     }
 
     func testBadURL() {
-        
+        env = Environment(host: "BADURL")
+        env.headers = ["Authorization" : "1234"]
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        networkDispatcher = NetworkDispatcher(environment: env, session: session)
+        let expectation = self.expectation(description: "network failed to connect")
+        mockTask.exeute(in: networkDispatcher, completed: { _ in
+            XCTFail("Should not succeed")
+        }) { (error) in
+            expectation.fulfill()
+            XCTAssertNotNil(error)
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
     }
 
     func testBadRequest() {
@@ -227,4 +241,6 @@ class NetworkDispatcherTests: XCTestCase {
 
         waitForExpectations(timeout: timeout, handler: nil)
     }
+    
 }
+

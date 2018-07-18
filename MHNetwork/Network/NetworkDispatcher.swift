@@ -50,9 +50,7 @@ public class NetworkDispatcher: Dispatcher {
                 urlRequest.httpBody = jsonData
                 createHeadersInRequest(urlRequest, request, onComplete: { (urlRequest) in
                     onComplete(urlRequest)
-                }) { (error) in
-                    onError(error)
-                }
+                })
 
             }
         case .url(let params):
@@ -72,16 +70,13 @@ public class NetworkDispatcher: Dispatcher {
             urlRequest.url = components.url
             createHeadersInRequest(urlRequest, request, onComplete: { (urlRequest) in
                 onComplete(urlRequest)
-            }) { (error) in
-                onError(error)
-            }
+            })
         }
     }
 
     fileprivate func createHeadersInRequest(_ urlRequest: URLRequest,
                                             _ request: Request,
-                                            onComplete: @escaping (URLRequest) -> Void,
-                                            onError: @escaping (NetworkErrors) -> Void) {
+                                            onComplete: @escaping (URLRequest) -> Void) {
         // Add headers from enviornment and request
         var urlRequest = urlRequest
         self.environment.headers?.forEach { urlRequest.addValue($0.value as! String, forHTTPHeaderField: $0.key) }
