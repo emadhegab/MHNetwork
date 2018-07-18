@@ -5,8 +5,9 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   - WORKSPACE=MHNetwork.xcworkspace
-  - TEST_WORKSPACE=MHNetworkTests
   - IOS_FRAMEWORK_SCHEME="MHNetwork"
+  - SCHEME="MHNetwork"
+  - TEST_SCHEME="MHNetworkTests"
   - IOS_SDK=iphonesimulator11.0
   - EXAMPLE_SCHEME="QuoteAppExample"
   matrix:
@@ -21,22 +22,18 @@ script:
 
   # Build Framework in Release and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$TEST_WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH="$COVERAGE" ENABLE_TESTABILITY=YES test;
+      xcodebuild -workspace "$WORKSPACE" -scheme "$TEST_SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH="$COVERAGE" ENABLE_TESTABILITY=YES test;
     else
       xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
 
   # Build Framework in Debug and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
-        xcodebuild -workspace "$TEST_WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=$COVERAGE ENABLE_TESTABILITY=YES test;
+        xcodebuild -workspace "$TEST_WORKSPACE" -scheme "$TEST_SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=$COVERAGE ENABLE_TESTABILITY=YES test;
     else
       xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
 
-  # Build Example in Debug if specified
-  - if [ $BUILD_EXAMPLE == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
 
   # Run `pod lib lint` if specified
   - if [ $POD_LINT == "YES" ]; then
