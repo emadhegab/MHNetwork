@@ -15,7 +15,7 @@
 		FD75389120FCBCF100F99D83 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388B20FCBCF100F99D83 /* Response.swift */; };
 		FD75389220FCBCF100F99D83 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388C20FCBCF100F99D83 /* Request.swift */; };
 		FD75389520FCBCF100F99D83 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */; };
-		FD75389720FCC20900F99D83 /* ApplicationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75389620FCC20900F99D83 /* ApplicationErrors.swift */; };
+		FD7AB6232102447E00B95DBB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AB6222102447E00B95DBB /* NetworkError.swift */; };
 		FDA192B220FE4944001C586F /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA192B120FE4944001C586F /* Operations.swift */; };
 		FDCC0B6F20FCC9A100092F44 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */; };
 		FDCC0B7020FCC9A100092F44 /* NetworkDispatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */; };
@@ -48,7 +48,7 @@
 		FD75388B20FCBCF100F99D83 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		FD75388C20FCBCF100F99D83 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
-		FD75389620FCC20900F99D83 /* ApplicationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationErrors.swift; sourceTree = "<group>"; };
+		FD7AB6222102447E00B95DBB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FDA192B120FE4944001C586F /* Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
 		FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcherTest.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				FDCC0C0D20FCEC5700092F44 /* Network */,
-				FD75389620FCC20900F99D83 /* ApplicationErrors.swift */,
 				FD75387220FCBCC700F99D83 /* MHNetwork.h */,
 				FD75387320FCBCC700F99D83 /* Info.plist */,
 			);
@@ -146,6 +145,7 @@
 				FD75388C20FCBCF100F99D83 /* Request.swift */,
 				FDA192B120FE4944001C586F /* Operations.swift */,
 				FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */,
+				FD7AB6222102447E00B95DBB /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -266,13 +266,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MHNetworkTests/Pods-MHNetworkTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -323,11 +321,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD75389120FCBCF100F99D83 /* Response.swift in Sources */,
-				FD75389720FCC20900F99D83 /* ApplicationErrors.swift in Sources */,
 				FD75389220FCBCF100F99D83 /* Request.swift in Sources */,
 				FD75389520FCBCF100F99D83 /* NetworkDispatcher.swift in Sources */,
 				FD75389020FCBCF100F99D83 /* Environment.swift in Sources */,
 				FDA192B220FE4944001C586F /* Operations.swift in Sources */,
+				FD7AB6232102447E00B95DBB /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

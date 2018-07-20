@@ -8,12 +8,6 @@
 
 /// Define the type of data we expect as response
 ///
-/// - JSON: it's a json
-/// - Data: it's plain data
-public enum DataType {
-    case json
-    case data
-}
 
 public enum RequestParams {
     case body(_ : [String: Any]?)
@@ -33,5 +27,4 @@ public protocol Request {
     var method: HTTPMethod { get }
     var parameters: RequestParams { get }
     var headers: [String: Any]? { get }
-    var dataType: DataType { get }
 }

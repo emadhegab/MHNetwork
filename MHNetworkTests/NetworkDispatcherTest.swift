@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import Nimble
+
 @testable import MHNetwork
 
 let timeout: TimeInterval = 10
@@ -34,13 +36,6 @@ private enum MockQuoteRequest: Request {
     var headers: [String : Any]? {
         return ["Authorization": "xyz"]
     }
-
-    var dataType: DataType {
-        return .data
-    }
-
-
-
 }
 
 private class MockBadRequest: Request {
@@ -66,10 +61,6 @@ private class MockBadRequest: Request {
     var headers: [String: Any]? {
         return ["Content-Type":"application/json"]
     }
-    var dataType: DataType {
-        return .data
-    }
-
 }
 
 private class MockQuoteTask<T: Codable>: Operations {
@@ -79,7 +70,7 @@ private class MockQuoteTask<T: Codable>: Operations {
         return MockQuoteRequest.getRandomQuote
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (NetworkErrors) -> Void) {
+    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (Error) -> Void) {
 
         do {
             try dispatcher.execute(request: self.request, completion: { (response) in
@@ -92,20 +83,16 @@ private class MockQuoteTask<T: Codable>: Operations {
                         let object = try decoder.decode(T.self, from: data)
                         completed(object)
                     } catch let error {
-                        onError(NetworkErrors.parsingError(error.localizedDescription))
+                        onError(error)
                     }
                     break
-                case .error(_, let networkError):
-                    guard let error = networkError else { break }
+                case .error(let status, let error, let data):
                     onError(error)
                     break
-                default: break
-
                 }
             }, onError: onError)
         } catch {
-            guard let safeError = error as? NetworkErrors else { return }
-            onError(safeError)
+            onError(error)
         }
     }
 }
@@ -118,7 +105,7 @@ private class MockBadTask<T: Codable>: Operations {
         return MockBadRequest(body: body)
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (NetworkErrors) -> Void) {
+    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (Error) -> Void) {
         do {
 
             try dispatcher.execute(request: request, completion: { (response) in
@@ -130,12 +117,11 @@ private class MockBadTask<T: Codable>: Operations {
                         let t = try decoder.decode(T.self, from: data)
                         completed(t)
                     } catch let error {
-                        onError(NetworkErrors.parsingError(error.localizedDescription))
+                        onError(error)
                     }
-                case .error(_, let networkError):
+                case .error(_, let networkError, _):
                     guard let error = networkError else { break }
                     onError(error)
-                default: break
 
                 }
             }, onError: { (error) in
@@ -143,9 +129,7 @@ private class MockBadTask<T: Codable>: Operations {
             })
 
         } catch {
-            if let error = error.convertToNetworkApplicationError() {
-                onError(error)
-            }
+            onError(error)
         }
     }
 }
@@ -189,27 +173,24 @@ class NetworkDispatcherTests: XCTestCase {
         env.headers = ["Authorization" : "1234"]
         let session = URLSession(configuration: URLSessionConfiguration.default)
         networkDispatcher = NetworkDispatcher(environment: env, session: session)
-        let expectation = self.expectation(description: "network failed to connect")
+        var checker = false
         mockTask.exeute(in: networkDispatcher, completed: { _ in
             XCTFail("Should not succeed")
         }) { (error) in
-            expectation.fulfill()
-            XCTAssertNotNil(error)
+            checker = true
         }
-
-        waitForExpectations(timeout: timeout, handler: nil)
+        expect(checker).toEventually(beTrue())
     }
 
     func testBadRequest() {
-        let expectation = self.expectation(description: "network failed to connect")
+        var checker = false
         mockBadTask.exeute(in: networkDispatcher, completed: { _ in
             XCTFail("Should not succeed")
         }) { (error) in
-            expectation.fulfill()
-            XCTAssertNotNil(error)
+            checker = true
         }
 
-        waitForExpectations(timeout: timeout, handler: nil)
+        expect(checker).toEventually(beTrue())
     }
 
     func testNetworkConnectability() {

@@ -18,7 +18,7 @@ public class NetworkDispatcher: Dispatcher {
     }
 
     public func execute(request: Request, completion: @escaping (Response) -> Void,
-                        onError: @escaping (NetworkErrors) -> Void) throws {
+                        onError: @escaping (Error) -> Void) throws {
 
         try self.prepareURLRequest(for: request, onComplete: { [weak self] (rq) in
             guard let `self` = self else { return }
@@ -35,11 +35,10 @@ public class NetworkDispatcher: Dispatcher {
 
     private func prepareURLRequest(for request: Request,
                                    onComplete: @escaping (URLRequest) -> Void,
-                                   onError: @escaping (NetworkErrors) -> Void) throws {
+                                   onError: @escaping (Error) -> Void) throws {
         // Compose the url
         let fullUrl = "\(environment.host)/\(request.path)"
         var urlRequest: URLRequest!
-
         // Working with parameters
         switch request.parameters {
         case .body(let params):
@@ -60,7 +59,8 @@ public class NetworkDispatcher: Dispatcher {
                 return URLQueryItem(name: element.key, value: element.value as? String)
             })
             guard var components = URLComponents(string: fullUrl), let url = URL(string: fullUrl) else {
-                throw NetworkErrors.badInput
+                onError(NetworkError.runTimeError("Bad Input"))
+                return
             }
             components.queryItems = queryParams
             // Replace + and : to URLEncode the dates in the paramters url.
