@@ -70,7 +70,7 @@ private class MockQuoteTask<T: Codable>: Operations {
         return MockQuoteRequest.getRandomQuote
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (Error) -> Void) {
+    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
 
         do {
             try dispatcher.execute(request: self.request, completion: { (response) in
@@ -83,16 +83,16 @@ private class MockQuoteTask<T: Codable>: Operations {
                         let object = try decoder.decode(T.self, from: data)
                         completed(object)
                     } catch let error {
-                        onError(error)
+                        onError((nil, error, nil))
                     }
                     break
-                case .error(let status, let error, let data):
+                case .error(let error):
                     onError(error)
                     break
                 }
             }, onError: onError)
         } catch {
-            onError(error)
+            onError((nil, error, nil))
         }
     }
 }
@@ -105,9 +105,11 @@ private class MockBadTask<T: Codable>: Operations {
         return MockBadRequest(body: body)
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (Error) -> Void) {
+    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
         do {
 
+
+            
             try dispatcher.execute(request: request, completion: { (response) in
                 switch response {
 
@@ -117,19 +119,18 @@ private class MockBadTask<T: Codable>: Operations {
                         let t = try decoder.decode(T.self, from: data)
                         completed(t)
                     } catch let error {
-                        onError(error)
+                        onError((nil, error, nil))
                     }
-                case .error(_, let networkError, _):
-                    guard let error = networkError else { break }
+                case .error(let error):
                     onError(error)
-
+                    break
                 }
             }, onError: { (error) in
                 onError(error)
             })
 
         } catch {
-            onError(error)
+            onError((nil, error, nil))
         }
     }
 }

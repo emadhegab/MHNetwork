@@ -18,7 +18,7 @@ public class NetworkDispatcher: Dispatcher {
     }
 
     public func execute(request: Request, completion: @escaping (Response) -> Void,
-                        onError: @escaping (Error) -> Void) throws {
+                        onError: @escaping (ErrorItem) -> Void) throws {
 
         try self.prepareURLRequest(for: request, onComplete: { [weak self] (rq) in
             guard let `self` = self else { return }
@@ -35,7 +35,7 @@ public class NetworkDispatcher: Dispatcher {
 
     private func prepareURLRequest(for request: Request,
                                    onComplete: @escaping (URLRequest) -> Void,
-                                   onError: @escaping (Error) -> Void) throws {
+                                   onError: @escaping (ErrorItem) -> Void) throws {
         // Compose the url
         let fullUrl = "\(environment.host)/\(request.path)"
         var urlRequest: URLRequest!
@@ -59,7 +59,7 @@ public class NetworkDispatcher: Dispatcher {
                 return URLQueryItem(name: element.key, value: element.value as? String)
             })
             guard var components = URLComponents(string: fullUrl), let url = URL(string: fullUrl) else {
-                onError(NetworkError.runTimeError("Bad Input"))
+                onError((HTTPStatusCodes.notFound, nil, nil))
                 return
             }
             components.queryItems = queryParams
