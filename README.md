@@ -12,11 +12,11 @@ so in the beginning..
 #### install
 
 ```
-$ pod install MHProgressButton
+$ pod install MHNetwork
 ```
 or in your podfile
 ```
-pod 'MHProgressButton'
+pod 'MHNetwork'
 ```
 
 #### usage
@@ -119,7 +119,7 @@ one last note.. when creating the instance of MoviesTask you noticed the comment
 
 ### TODO://
 - [ ] need to support JSON return type without depending on any 3rd party
-- [ ] need to fix & clean the example test cases and code 
+- [ ] need to fix & clean the example test cases and code
 
 
 ### Contribute://
