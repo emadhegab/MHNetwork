@@ -29,7 +29,26 @@
       codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD66C21822E205AC00E35B5F"
+               BuildableName = "MHNetworkTests.xctest"
+               BlueprintName = "MHNetworkTests"
+               ReferencedContainer = "container:MHNetwork.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FD75386E20FCBCC700F99D83"
+            BuildableName = "MHNetwork.framework"
+            BlueprintName = "MHNetwork"
+            ReferencedContainer = "container:MHNetwork.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
