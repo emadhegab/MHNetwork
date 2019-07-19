@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Nimble
 
 @testable import MHNetwork
 
@@ -19,7 +18,7 @@ private enum MockQuoteRequest: Request {
     case getRandomQuote
 
     var path: String {
-        return "quotes/random/"
+        return "users"
     }
 
     var method: HTTPMethod {
@@ -70,7 +69,7 @@ private class MockQuoteTask<T: Codable>: Operations {
         return MockQuoteRequest.getRandomQuote
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
+    func execute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
 
         do {
             try dispatcher.execute(request: self.request, completion: { (response) in
@@ -105,7 +104,7 @@ private class MockBadTask<T: Codable>: Operations {
         return MockBadRequest(body: body)
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
+    func execute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
         do {
 
 
@@ -170,59 +169,37 @@ class NetworkDispatcherTests: XCTestCase {
     }
 
     func testBadURL() {
+         let exp = expectation(description: "fail")
         env = Environment(host: "BADURL")
         env.headers = ["Authorization" : "1234"]
         let session = URLSession(configuration: URLSessionConfiguration.default)
         networkDispatcher = NetworkDispatcher(environment: env, session: session)
         var checker = false
-        mockTask.exeute(in: networkDispatcher, completed: { _ in
+        mockTask.execute(in: networkDispatcher, completed: { _ in
             XCTFail("Should not succeed")
         }) { (error) in
             checker = true
+            exp.fulfill()
         }
-        expect(checker).toEventually(beTrue())
+
+        waitForExpectations(timeout: timeout, handler: nil)
+        XCTAssertEqual(checker, true)
+
     }
 
     func testBadRequest() {
+        let exp = expectation(description: "fail")
         var checker = false
-        mockBadTask.exeute(in: networkDispatcher, completed: { _ in
+        mockBadTask.execute(in: networkDispatcher, completed: { _ in
             XCTFail("Should not succeed")
         }) { (error) in
             checker = true
+            exp.fulfill()
         }
 
-        expect(checker).toEventually(beTrue())
-    }
-
-    func testNetworkConnectability() {
-        let expectation = self.expectation(description: "network connected")
-
-        let networkDispatcher = NetworkDispatcher(environment: env, session: URLSession(configuration: .default))
-        let quoteTask = MockQuoteTask<MockQuote>()
-        quoteTask.exeute(in: networkDispatcher, completed: { (quote) in
-            DispatchQueue.main.async {
-                XCTAssertNotNil(quote)
-                expectation.fulfill()
-            }
-        }) { (error) in
-            XCTFail()
-        }
         waitForExpectations(timeout: timeout, handler: nil)
+        XCTAssertEqual(checker, true)
     }
 
-    func testNetworkDispacherWithURLQuery() {
-        let expectation = self.expectation(description: "network Dispatcher")
-        mockTask.body = false
-        mockTask.exeute(in: networkDispatcher, completed: { _ in
-
-            expectation.fulfill()
-        }, onError: { error in
-
-            XCTFail("Request shouldn't fail")
-        })
-
-        waitForExpectations(timeout: timeout, handler: nil)
-    }
-    
 }
 

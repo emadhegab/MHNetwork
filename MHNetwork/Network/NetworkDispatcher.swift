@@ -6,6 +6,7 @@
 //  Copyright © 2018 Mohamed Hegab. All rights reserved.
 //
 
+import UIKit
 
 public class NetworkDispatcher: Dispatcher {
     private var environment: Environment

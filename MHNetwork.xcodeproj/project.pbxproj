@@ -7,9 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9C6EAEC162B1DD9E3CABBBB /* Pods_MHNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD87967922E20B2200EC2153 /* Pods_MHNetwork.framework */; };
+		D07DF2603490473F8559D488 /* Pods_MHNetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057EE4E5C0E32B02B2DA8043 /* Pods_MHNetworkTests.framework */; };
 		F2D52F6067FBAA0BD9046BDB /* Pods_MHNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1224D3683B44013E9DC5F4D /* Pods_MHNetwork.framework */; };
-		F34A3BD157E1B8F784F2F199 /* Pods_MHNetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057EE4E5C0E32B02B2DA8043 /* Pods_MHNetworkTests.framework */; };
-		FD75387920FCBCC700F99D83 /* MHNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD75386F20FCBCC700F99D83 /* MHNetwork.framework */; };
+		FD66C17F22E1FC1F00E35B5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C17E22E1FC1F00E35B5F /* AppDelegate.swift */; };
+		FD66C18622E1FC2000E35B5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD66C18522E1FC2000E35B5F /* Assets.xcassets */; };
+		FD66C18922E1FC2000E35B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD66C18722E1FC2000E35B5F /* LaunchScreen.storyboard */; };
+		FD66C1A822E1FC8D00E35B5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD66C19D22E1FC8D00E35B5F /* Main.storyboard */; };
+		FD66C1A922E1FC8D00E35B5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C19E22E1FC8D00E35B5F /* ViewController.swift */; };
+		FD66C1AD22E1FF6300E35B5F /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1AC22E1FF6300E35B5F /* Error+Extensions.swift */; };
+		FD66C1D722E2014900E35B5F /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B122E2014900E35B5F /* Container.swift */; };
+		FD66C1D822E2014900E35B5F /* PostRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B322E2014900E35B5F /* PostRequests.swift */; };
+		FD66C1D922E2014900E35B5F /* GetPostTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B422E2014900E35B5F /* GetPostTask.swift */; };
+		FD66C1DA22E2014900E35B5F /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B522E2014900E35B5F /* PostInteractor.swift */; };
+		FD66C1DB22E2014900E35B5F /* BaseDatasources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B722E2014900E35B5F /* BaseDatasources.swift */; };
+		FD66C1DC22E2014900E35B5F /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B822E2014900E35B5F /* BaseRouter.swift */; };
+		FD66C1DD22E2014900E35B5F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B922E2014900E35B5F /* PostViewController.swift */; };
+		FD66C1DE22E2014900E35B5F /* PostProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1BA22E2014900E35B5F /* PostProtocols.swift */; };
+		FD66C1DF22E2014900E35B5F /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD66C1BE22E2014900E35B5F /* UserCell.xib */; };
+		FD66C1E022E2014900E35B5F /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1BF22E2014900E35B5F /* UserCell.swift */; };
+		FD66C1E122E2014900E35B5F /* UserDatasources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1C022E2014900E35B5F /* UserDatasources.swift */; };
+		FD66C1E222E2014900E35B5F /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1C122E2014900E35B5F /* UserRouter.swift */; };
+		FD66C1E322E2014900E35B5F /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD66C1C222E2014900E35B5F /* UserViewController.xib */; };
+		FD66C1E422E2014900E35B5F /* UserRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1C422E2014900E35B5F /* UserRequests.swift */; };
+		FD66C1E522E2014900E35B5F /* GetUsersTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1C522E2014900E35B5F /* GetUsersTask.swift */; };
+		FD66C1E622E2014900E35B5F /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1C622E2014900E35B5F /* UserViewController.swift */; };
+		FD66C1E722E2014900E35B5F /* UserProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1C722E2014900E35B5F /* UserProtocols.swift */; };
+		FD66C1E822E2014900E35B5F /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1C822E2014900E35B5F /* UserInteractor.swift */; };
+		FD66C1E922E2014900E35B5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1CA22E2014900E35B5F /* User.swift */; };
+		FD66C1EA22E2014900E35B5F /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1CB22E2014900E35B5F /* UserPresenter.swift */; };
+		FD66C1EB22E2014900E35B5F /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1CC22E2014900E35B5F /* PostPresenter.swift */; };
+		FD66C1EC22E2014900E35B5F /* PostsDatasources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1CD22E2014900E35B5F /* PostsDatasources.swift */; };
+		FD66C1ED22E2014900E35B5F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1CE22E2014900E35B5F /* Post.swift */; };
+		FD66C1EE22E2014900E35B5F /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD66C1CF22E2014900E35B5F /* PostViewController.xib */; };
+		FD66C1EF22E2014900E35B5F /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD66C1D022E2014900E35B5F /* PostCell.xib */; };
+		FD66C1F022E2014900E35B5F /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1D122E2014900E35B5F /* PostCell.swift */; };
+		FD66C1F122E2014900E35B5F /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1D222E2014900E35B5F /* PostRouter.swift */; };
+		FD66C1F222E2014900E35B5F /* TableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1D522E2014900E35B5F /* TableViewCell+Extensions.swift */; };
+		FD66C1F322E2014900E35B5F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1D622E2014900E35B5F /* UIColor+Extension.swift */; };
+		FD66C1FA22E2042200E35B5F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388A20FCBCF100F99D83 /* Environment.swift */; };
+		FD66C1FB22E2042200E35B5F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388B20FCBCF100F99D83 /* Response.swift */; };
+		FD66C1FC22E2042200E35B5F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388C20FCBCF100F99D83 /* Request.swift */; };
+		FD66C1FD22E2042200E35B5F /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA192B120FE4944001C586F /* Operations.swift */; };
+		FD66C1FE22E2042200E35B5F /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */; };
+		FD66C1FF22E2042200E35B5F /* StatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AB6222102447E00B95DBB /* StatusCodes.swift */; };
+		FD66C21E22E205AC00E35B5F /* MHNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD75386F20FCBCC700F99D83 /* MHNetwork.framework */; };
+		FD66C22422E205B400E35B5F /* NetworkDispatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */; };
+		FD66C22522E205B400E35B5F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B7120FCCD4C00092F44 /* TestData.swift */; };
+		FD66C22622E205B400E35B5F /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */; };
 		FD75388020FCBCC700F99D83 /* MHNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = FD75387220FCBCC700F99D83 /* MHNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD75389020FCBCF100F99D83 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388A20FCBCF100F99D83 /* Environment.swift */; };
 		FD75389120FCBCF100F99D83 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388B20FCBCF100F99D83 /* Response.swift */; };
@@ -17,18 +62,22 @@
 		FD75389520FCBCF100F99D83 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */; };
 		FD7AB6232102447E00B95DBB /* StatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7AB6222102447E00B95DBB /* StatusCodes.swift */; };
 		FDA192B220FE4944001C586F /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA192B120FE4944001C586F /* Operations.swift */; };
-		FDCC0B6F20FCC9A100092F44 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */; };
-		FDCC0B7020FCC9A100092F44 /* NetworkDispatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */; };
-		FDCC0B7220FCCD4C00092F44 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC0B7120FCCD4C00092F44 /* TestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FD75387A20FCBCC700F99D83 /* PBXContainerItemProxy */ = {
+		FD66C21F22E205AC00E35B5F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FD75386620FCBCC700F99D83 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FD75386E20FCBCC700F99D83;
 			remoteInfo = MHNetwork;
+		};
+		FD87967522E20ABD00EC2153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD75386620FCBCC700F99D83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD66C17B22E1FC1F00E35B5F;
+			remoteInfo = ExampleApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -39,16 +88,56 @@
 		9C007DF39E7FCA7C3BF654A0 /* Pods-MHNetworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHNetworkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHNetworkTests/Pods-MHNetworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		D1224D3683B44013E9DC5F4D /* Pods_MHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABD46A175D61B2BE20F091E /* Pods-MHNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHNetwork/Pods-MHNetwork.debug.xcconfig"; sourceTree = "<group>"; };
+		FD66C17C22E1FC1F00E35B5F /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD66C17E22E1FC1F00E35B5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FD66C18522E1FC2000E35B5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD66C18822E1FC2000E35B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD66C18A22E1FC2000E35B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD66C19D22E1FC8D00E35B5F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = QuoteAppExample/QuoteApp/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		FD66C19E22E1FC8D00E35B5F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = QuoteAppExample/QuoteApp/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		FD66C1AC22E1FF6300E35B5F /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
+		FD66C1B122E2014900E35B5F /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		FD66C1B322E2014900E35B5F /* PostRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequests.swift; sourceTree = "<group>"; };
+		FD66C1B422E2014900E35B5F /* GetPostTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPostTask.swift; sourceTree = "<group>"; };
+		FD66C1B522E2014900E35B5F /* PostInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		FD66C1B722E2014900E35B5F /* BaseDatasources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDatasources.swift; sourceTree = "<group>"; };
+		FD66C1B822E2014900E35B5F /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		FD66C1B922E2014900E35B5F /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		FD66C1BA22E2014900E35B5F /* PostProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostProtocols.swift; sourceTree = "<group>"; };
+		FD66C1BE22E2014900E35B5F /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		FD66C1BF22E2014900E35B5F /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		FD66C1C022E2014900E35B5F /* UserDatasources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDatasources.swift; sourceTree = "<group>"; };
+		FD66C1C122E2014900E35B5F /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		FD66C1C222E2014900E35B5F /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		FD66C1C422E2014900E35B5F /* UserRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequests.swift; sourceTree = "<group>"; };
+		FD66C1C522E2014900E35B5F /* GetUsersTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsersTask.swift; sourceTree = "<group>"; };
+		FD66C1C622E2014900E35B5F /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		FD66C1C722E2014900E35B5F /* UserProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProtocols.swift; sourceTree = "<group>"; };
+		FD66C1C822E2014900E35B5F /* UserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
+		FD66C1CA22E2014900E35B5F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FD66C1CB22E2014900E35B5F /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		FD66C1CC22E2014900E35B5F /* PostPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
+		FD66C1CD22E2014900E35B5F /* PostsDatasources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsDatasources.swift; sourceTree = "<group>"; };
+		FD66C1CE22E2014900E35B5F /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FD66C1CF22E2014900E35B5F /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		FD66C1D022E2014900E35B5F /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		FD66C1D122E2014900E35B5F /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		FD66C1D222E2014900E35B5F /* PostRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		FD66C1D522E2014900E35B5F /* TableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		FD66C1D622E2014900E35B5F /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		FD66C21922E205AC00E35B5F /* MHNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD66C21D22E205AC00E35B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD75386F20FCBCC700F99D83 /* MHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD75387220FCBCC700F99D83 /* MHNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNetwork.h; sourceTree = "<group>"; };
 		FD75387320FCBCC700F99D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD75387820FCBCC700F99D83 /* MHNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD75387F20FCBCC700F99D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD75388A20FCBCF100F99D83 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		FD75388B20FCBCF100F99D83 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		FD75388C20FCBCF100F99D83 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		FD7AB6222102447E00B95DBB /* StatusCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodes.swift; sourceTree = "<group>"; };
+		FD87967722E20AFC00EC2153 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD87967922E20B2200EC2153 /* Pods_MHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD87967B22E20C3200EC2153 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA192B120FE4944001C586F /* Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
 		FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcherTest.swift; sourceTree = "<group>"; };
@@ -56,20 +145,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FD66C17922E1FC1F00E35B5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD66C21622E205AC00E35B5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66C21E22E205AC00E35B5F /* MHNetwork.framework in Frameworks */,
+				D07DF2603490473F8559D488 /* Pods_MHNetworkTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD75386B20FCBCC700F99D83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F2D52F6067FBAA0BD9046BDB /* Pods_MHNetwork.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD75387520FCBCC700F99D83 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD75387920FCBCC700F99D83 /* MHNetwork.framework in Frameworks */,
-				F34A3BD157E1B8F784F2F199 /* Pods_MHNetworkTests.framework in Frameworks */,
+				A9C6EAEC162B1DD9E3CABBBB /* Pods_MHNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +187,9 @@
 		9A7EA4C64E447A2FC0BA5B27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD87967B22E20C3200EC2153 /* Nimble.framework */,
+				FD87967922E20B2200EC2153 /* Pods_MHNetwork.framework */,
+				FD87967722E20AFC00EC2153 /* Nimble.framework */,
 				D1224D3683B44013E9DC5F4D /* Pods_MHNetwork.framework */,
 				057EE4E5C0E32B02B2DA8043 /* Pods_MHNetworkTests.framework */,
 			);
@@ -104,11 +204,202 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		FD66C17D22E1FC1F00E35B5F /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1AE22E2014900E35B5F /* Classes */,
+				FD66C17E22E1FC1F00E35B5F /* AppDelegate.swift */,
+				FD66C18522E1FC2000E35B5F /* Assets.xcassets */,
+				FD66C19D22E1FC8D00E35B5F /* Main.storyboard */,
+				FD66C19E22E1FC8D00E35B5F /* ViewController.swift */,
+				FD66C18722E1FC2000E35B5F /* LaunchScreen.storyboard */,
+				FD66C18A22E1FC2000E35B5F /* Info.plist */,
+			);
+			path = ExampleApp;
+			sourceTree = "<group>";
+		};
+		FD66C1AE22E2014900E35B5F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1AF22E2014900E35B5F /* Managers */,
+				FD66C1B222E2014900E35B5F /* Features */,
+				FD66C1D322E2014900E35B5F /* Helpers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FD66C1AF22E2014900E35B5F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1B022E2014900E35B5F /* DependencyInjection */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FD66C1B022E2014900E35B5F /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1B122E2014900E35B5F /* Container.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		FD66C1B222E2014900E35B5F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1B622E2014900E35B5F /* Bases */,
+				FD66C1BB22E2014900E35B5F /* Users */,
+				FD66C1F422E2018000E35B5F /* Posts */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		FD66C1B622E2014900E35B5F /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1B722E2014900E35B5F /* BaseDatasources.swift */,
+				FD66C1B822E2014900E35B5F /* BaseRouter.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		FD66C1BB22E2014900E35B5F /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1C922E2014900E35B5F /* Entities */,
+				FD66C1C322E2014900E35B5F /* Requests */,
+				FD66C1BC22E2014900E35B5F /* Datasources */,
+				FD66C1C122E2014900E35B5F /* UserRouter.swift */,
+				FD66C1C222E2014900E35B5F /* UserViewController.xib */,
+				FD66C1C622E2014900E35B5F /* UserViewController.swift */,
+				FD66C1C722E2014900E35B5F /* UserProtocols.swift */,
+				FD66C1C822E2014900E35B5F /* UserInteractor.swift */,
+				FD66C1CB22E2014900E35B5F /* UserPresenter.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		FD66C1BC22E2014900E35B5F /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1BD22E2014900E35B5F /* Cells */,
+				FD66C1C022E2014900E35B5F /* UserDatasources.swift */,
+			);
+			path = Datasources;
+			sourceTree = "<group>";
+		};
+		FD66C1BD22E2014900E35B5F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1BE22E2014900E35B5F /* UserCell.xib */,
+				FD66C1BF22E2014900E35B5F /* UserCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FD66C1C322E2014900E35B5F /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1C422E2014900E35B5F /* UserRequests.swift */,
+				FD66C1C522E2014900E35B5F /* GetUsersTask.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		FD66C1C922E2014900E35B5F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1CA22E2014900E35B5F /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FD66C1D322E2014900E35B5F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1D422E2014900E35B5F /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FD66C1D422E2014900E35B5F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1AC22E1FF6300E35B5F /* Error+Extensions.swift */,
+				FD66C1D522E2014900E35B5F /* TableViewCell+Extensions.swift */,
+				FD66C1D622E2014900E35B5F /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FD66C1F422E2018000E35B5F /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1F722E201AF00E35B5F /* Entities */,
+				FD66C1F622E2019600E35B5F /* Requests */,
+				FD66C1F822E201C000E35B5F /* Datasources */,
+				FD66C1B522E2014900E35B5F /* PostInteractor.swift */,
+				FD66C1B922E2014900E35B5F /* PostViewController.swift */,
+				FD66C1BA22E2014900E35B5F /* PostProtocols.swift */,
+				FD66C1CC22E2014900E35B5F /* PostPresenter.swift */,
+				FD66C1CF22E2014900E35B5F /* PostViewController.xib */,
+				FD66C1D222E2014900E35B5F /* PostRouter.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		FD66C1F622E2019600E35B5F /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1B322E2014900E35B5F /* PostRequests.swift */,
+				FD66C1B422E2014900E35B5F /* GetPostTask.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		FD66C1F722E201AF00E35B5F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1CE22E2014900E35B5F /* Post.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FD66C1F822E201C000E35B5F /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1F922E201D200E35B5F /* Cells */,
+				FD66C1CD22E2014900E35B5F /* PostsDatasources.swift */,
+			);
+			path = Datasources;
+			sourceTree = "<group>";
+		};
+		FD66C1F922E201D200E35B5F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FD66C1D022E2014900E35B5F /* PostCell.xib */,
+				FD66C1D122E2014900E35B5F /* PostCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FD66C21A22E205AC00E35B5F /* MHNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */,
+				FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */,
+				FDCC0B7120FCCD4C00092F44 /* TestData.swift */,
+				FD66C21D22E205AC00E35B5F /* Info.plist */,
+			);
+			path = MHNetworkTests;
+			sourceTree = "<group>";
+		};
 		FD75386520FCBCC700F99D83 = {
 			isa = PBXGroup;
 			children = (
+				FD66C17D22E1FC1F00E35B5F /* ExampleApp */,
 				FD75387120FCBCC700F99D83 /* MHNetwork */,
-				FD75387C20FCBCC700F99D83 /* MHNetworkTests */,
+				FD66C21A22E205AC00E35B5F /* MHNetworkTests */,
 				FD75387020FCBCC700F99D83 /* Products */,
 				9A7EA4C64E447A2FC0BA5B27 /* Frameworks */,
 				277D53C637867D0A4C10095E /* Pods */,
@@ -119,7 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				FD75386F20FCBCC700F99D83 /* MHNetwork.framework */,
-				FD75387820FCBCC700F99D83 /* MHNetworkTests.xctest */,
+				FD66C17C22E1FC1F00E35B5F /* ExampleApp.app */,
+				FD66C21922E205AC00E35B5F /* MHNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,17 +424,6 @@
 				FD75387320FCBCC700F99D83 /* Info.plist */,
 			);
 			path = MHNetwork;
-			sourceTree = "<group>";
-		};
-		FD75387C20FCBCC700F99D83 /* MHNetworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				FDCC0B6E20FCC9A100092F44 /* NetworkDispatcherTest.swift */,
-				FDCC0B6D20FCC9A100092F44 /* ResponseTest.swift */,
-				FDCC0B7120FCCD4C00092F44 /* TestData.swift */,
-				FD75387F20FCBCC700F99D83 /* Info.plist */,
-			);
-			path = MHNetworkTests;
 			sourceTree = "<group>";
 		};
 		FDCC0C0D20FCEC5700092F44 /* Network */ = {
@@ -172,6 +453,43 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		FD66C17B22E1FC1F00E35B5F /* ExampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD66C18B22E1FC2000E35B5F /* Build configuration list for PBXNativeTarget "ExampleApp" */;
+			buildPhases = (
+				FD66C17822E1FC1F00E35B5F /* Sources */,
+				FD66C17922E1FC1F00E35B5F /* Frameworks */,
+				FD66C17A22E1FC1F00E35B5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExampleApp;
+			productName = ExampleApp;
+			productReference = FD66C17C22E1FC1F00E35B5F /* ExampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FD66C21822E205AC00E35B5F /* MHNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD66C22122E205AC00E35B5F /* Build configuration list for PBXNativeTarget "MHNetworkTests" */;
+			buildPhases = (
+				29DF0ECFFC16548E5353B063 /* [CP] Check Pods Manifest.lock */,
+				FD66C21522E205AC00E35B5F /* Sources */,
+				FD66C21622E205AC00E35B5F /* Frameworks */,
+				FD66C21722E205AC00E35B5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD66C22022E205AC00E35B5F /* PBXTargetDependency */,
+				FD87967622E20ABD00EC2153 /* PBXTargetDependency */,
+			);
+			name = MHNetworkTests;
+			productName = MHNetworkTests;
+			productReference = FD66C21922E205AC00E35B5F /* MHNetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FD75386E20FCBCC700F99D83 /* MHNetwork */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD75388320FCBCC700F99D83 /* Build configuration list for PBXNativeTarget "MHNetwork" */;
@@ -191,41 +509,26 @@
 			productReference = FD75386F20FCBCC700F99D83 /* MHNetwork.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FD75387720FCBCC700F99D83 /* MHNetworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FD75388620FCBCC700F99D83 /* Build configuration list for PBXNativeTarget "MHNetworkTests" */;
-			buildPhases = (
-				6ED4B3B2A4D4A244C755483A /* [CP] Check Pods Manifest.lock */,
-				FD75387420FCBCC700F99D83 /* Sources */,
-				FD75387520FCBCC700F99D83 /* Frameworks */,
-				FD75387620FCBCC700F99D83 /* Resources */,
-				5B25C6E91359F7009455A97C /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FD75387B20FCBCC700F99D83 /* PBXTargetDependency */,
-			);
-			name = MHNetworkTests;
-			productName = MHNetworkTests;
-			productReference = FD75387820FCBCC700F99D83 /* MHNetworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		FD75386620FCBCC700F99D83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Mohamed Hegab";
 				TargetAttributes = {
+					FD66C17B22E1FC1F00E35B5F = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					FD66C21822E205AC00E35B5F = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = FD66C17B22E1FC1F00E35B5F;
+					};
 					FD75386E20FCBCC700F99D83 = {
 						CreatedOnToolsVersion = 9.4;
-					};
-					FD75387720FCBCC700F99D83 = {
-						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -235,6 +538,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = FD75386520FCBCC700F99D83;
 			productRefGroup = FD75387020FCBCC700F99D83 /* Products */;
@@ -242,20 +546,35 @@
 			projectRoot = "";
 			targets = (
 				FD75386E20FCBCC700F99D83 /* MHNetwork */,
-				FD75387720FCBCC700F99D83 /* MHNetworkTests */,
+				FD66C17B22E1FC1F00E35B5F /* ExampleApp */,
+				FD66C21822E205AC00E35B5F /* MHNetworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FD75386D20FCBCC700F99D83 /* Resources */ = {
+		FD66C17A22E1FC1F00E35B5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66C1DF22E2014900E35B5F /* UserCell.xib in Resources */,
+				FD66C1E322E2014900E35B5F /* UserViewController.xib in Resources */,
+				FD66C1EE22E2014900E35B5F /* PostViewController.xib in Resources */,
+				FD66C1EF22E2014900E35B5F /* PostCell.xib in Resources */,
+				FD66C18922E1FC2000E35B5F /* LaunchScreen.storyboard in Resources */,
+				FD66C18622E1FC2000E35B5F /* Assets.xcassets in Resources */,
+				FD66C1A822E1FC8D00E35B5F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD66C21722E205AC00E35B5F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD75387620FCBCC700F99D83 /* Resources */ = {
+		FD75386D20FCBCC700F99D83 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,36 +584,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5B25C6E91359F7009455A97C /* [CP] Embed Pods Frameworks */ = {
+		29DF0ECFFC16548E5353B063 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MHNetworkTests/Pods-MHNetworkTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHNetworkTests/Pods-MHNetworkTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6ED4B3B2A4D4A244C755483A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MHNetworkTests-checkManifestLockResult.txt",
 			);
@@ -324,6 +627,57 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FD66C17822E1FC1F00E35B5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66C1FA22E2042200E35B5F /* Environment.swift in Sources */,
+				FD66C1FB22E2042200E35B5F /* Response.swift in Sources */,
+				FD66C1FC22E2042200E35B5F /* Request.swift in Sources */,
+				FD66C1FD22E2042200E35B5F /* Operations.swift in Sources */,
+				FD66C1FE22E2042200E35B5F /* NetworkDispatcher.swift in Sources */,
+				FD66C1FF22E2042200E35B5F /* StatusCodes.swift in Sources */,
+				FD66C1A922E1FC8D00E35B5F /* ViewController.swift in Sources */,
+				FD66C1DC22E2014900E35B5F /* BaseRouter.swift in Sources */,
+				FD66C1E522E2014900E35B5F /* GetUsersTask.swift in Sources */,
+				FD66C1ED22E2014900E35B5F /* Post.swift in Sources */,
+				FD66C1EA22E2014900E35B5F /* UserPresenter.swift in Sources */,
+				FD66C1E822E2014900E35B5F /* UserInteractor.swift in Sources */,
+				FD66C1F122E2014900E35B5F /* PostRouter.swift in Sources */,
+				FD66C1F322E2014900E35B5F /* UIColor+Extension.swift in Sources */,
+				FD66C1DB22E2014900E35B5F /* BaseDatasources.swift in Sources */,
+				FD66C1DA22E2014900E35B5F /* PostInteractor.swift in Sources */,
+				FD66C1EC22E2014900E35B5F /* PostsDatasources.swift in Sources */,
+				FD66C1E622E2014900E35B5F /* UserViewController.swift in Sources */,
+				FD66C1E422E2014900E35B5F /* UserRequests.swift in Sources */,
+				FD66C1E922E2014900E35B5F /* User.swift in Sources */,
+				FD66C1E122E2014900E35B5F /* UserDatasources.swift in Sources */,
+				FD66C1DD22E2014900E35B5F /* PostViewController.swift in Sources */,
+				FD66C1F222E2014900E35B5F /* TableViewCell+Extensions.swift in Sources */,
+				FD66C1D722E2014900E35B5F /* Container.swift in Sources */,
+				FD66C1E722E2014900E35B5F /* UserProtocols.swift in Sources */,
+				FD66C1D822E2014900E35B5F /* PostRequests.swift in Sources */,
+				FD66C17F22E1FC1F00E35B5F /* AppDelegate.swift in Sources */,
+				FD66C1EB22E2014900E35B5F /* PostPresenter.swift in Sources */,
+				FD66C1F022E2014900E35B5F /* PostCell.swift in Sources */,
+				FD66C1E022E2014900E35B5F /* UserCell.swift in Sources */,
+				FD66C1AD22E1FF6300E35B5F /* Error+Extensions.swift in Sources */,
+				FD66C1E222E2014900E35B5F /* UserRouter.swift in Sources */,
+				FD66C1D922E2014900E35B5F /* GetPostTask.swift in Sources */,
+				FD66C1DE22E2014900E35B5F /* PostProtocols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD66C21522E205AC00E35B5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66C22622E205B400E35B5F /* ResponseTest.swift in Sources */,
+				FD66C22522E205B400E35B5F /* TestData.swift in Sources */,
+				FD66C22422E205B400E35B5F /* NetworkDispatcherTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD75386A20FCBCC700F99D83 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,27 +691,119 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD75387420FCBCC700F99D83 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDCC0B7220FCCD4C00092F44 /* TestData.swift in Sources */,
-				FDCC0B7020FCC9A100092F44 /* NetworkDispatcherTest.swift in Sources */,
-				FDCC0B6F20FCC9A100092F44 /* ResponseTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FD75387B20FCBCC700F99D83 /* PBXTargetDependency */ = {
+		FD66C22022E205AC00E35B5F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD75386E20FCBCC700F99D83 /* MHNetwork */;
-			targetProxy = FD75387A20FCBCC700F99D83 /* PBXContainerItemProxy */;
+			targetProxy = FD66C21F22E205AC00E35B5F /* PBXContainerItemProxy */;
+		};
+		FD87967622E20ABD00EC2153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD66C17B22E1FC1F00E35B5F /* ExampleApp */;
+			targetProxy = FD87967522E20ABD00EC2153 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		FD66C18722E1FC2000E35B5F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD66C18822E1FC2000E35B5F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		FD66C18C22E1FC2000E35B5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XF42ZHPGY;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MHNetwork.ExampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD66C18D22E1FC2000E35B5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XF42ZHPGY;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MHNetwork.ExampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FD66C22222E205AC00E35B5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95FCDA35D5141116BDC0B526 /* Pods-MHNetworkTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XF42ZHPGY;
+				INFOPLIST_FILE = MHNetworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MHNetwork.MHNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp.app/ExampleApp";
+			};
+			name = Debug;
+		};
+		FD66C22322E205AC00E35B5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C007DF39E7FCA7C3BF654A0 /* Pods-MHNetworkTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6XF42ZHPGY;
+				INFOPLIST_FILE = MHNetworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MHNetwork.MHNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp.app/ExampleApp";
+			};
+			name = Release;
+		};
 		FD75388120FCBCC700F99D83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -501,7 +947,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedarkdimension.MHNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -527,45 +973,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedarkdimension.MHNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		FD75388720FCBCC700F99D83 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95FCDA35D5141116BDC0B526 /* Pods-MHNetworkTests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = MHNetworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.thedarkdimension.MHNetworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FD75388820FCBCC700F99D83 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C007DF39E7FCA7C3BF654A0 /* Pods-MHNetworkTests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = MHNetworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.thedarkdimension.MHNetworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -573,6 +981,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FD66C18B22E1FC2000E35B5F /* Build configuration list for PBXNativeTarget "ExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD66C18C22E1FC2000E35B5F /* Debug */,
+				FD66C18D22E1FC2000E35B5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD66C22122E205AC00E35B5F /* Build configuration list for PBXNativeTarget "MHNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD66C22222E205AC00E35B5F /* Debug */,
+				FD66C22322E205AC00E35B5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FD75386920FCBCC700F99D83 /* Build configuration list for PBXProject "MHNetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -587,15 +1013,6 @@
 			buildConfigurations = (
 				FD75388420FCBCC700F99D83 /* Debug */,
 				FD75388520FCBCC700F99D83 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FD75388620FCBCC700F99D83 /* Build configuration list for PBXNativeTarget "MHNetworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD75388720FCBCC700F99D83 /* Debug */,
-				FD75388820FCBCC700F99D83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
