@@ -12,6 +12,5 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        QuoteRouter.route(from: self)
     }
 }
