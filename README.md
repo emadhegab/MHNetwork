@@ -2,7 +2,7 @@
 Protocol Oriented Network Layer Aim to avoid having bloated singleton NetworkManager
 
 [![Build Status](https://travis-ci.org/emadhegab/MHNetwork.svg?branch=master)](https://travis-ci.org/emadhegab/MHNetwork)
-[![Coverage Status](https://codecov.io/gh/MHNetwork/MHNetwork/branch/master/graphs/badge.svg)](https://codecov.io/gh/MHNetwork/MHNetwork/branch/master)
+[![Coverage Status](https://codecov.io/gh/emadhegab/MHNetwork/branch/master/graphs/badge.svg)](https://codecov.io/gh/emadhegab/MHNetwork/branch/master)
 
 
  ## Philosophy
