@@ -7,7 +7,7 @@ env:
   - LANG=en_US.UTF-8
   - IOS_FRAMEWORK_SCHEME="MHNetwork"
   - SCHEME="MHNetwork"
-  - TEST_SCHEME="MHNetworkTests"
+  - TEST_SCHEME="MHNetwork"
   - IOS_SDK=iphonesimulator11.0
   - EXAMPLE_SCHEME="ExampleApp"
   matrix:
