@@ -179,7 +179,6 @@
 				795FE051B623C5165D3EB040 /* Pods-MHNetworkTests.debug.xcconfig */,
 				FB1847B68DD41EE3C228B8FC /* Pods-MHNetworkTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -389,10 +388,24 @@
 			path = MHNetworkTests;
 			sourceTree = "<group>";
 		};
+		FD69AFCC22F856F100A3FDDD /* MHNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				FD75388A20FCBCF100F99D83 /* Environment.swift */,
+				FD75388B20FCBCF100F99D83 /* Response.swift */,
+				FD75388C20FCBCF100F99D83 /* Request.swift */,
+				FDA192B120FE4944001C586F /* Operations.swift */,
+				FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */,
+				FD1F50ED2105D7C900313702 /* Helpers */,
+			);
+			path = MHNetwork;
+			sourceTree = "<group>";
+		};
 		FD75386520FCBCC700F99D83 = {
 			isa = PBXGroup;
 			children = (
 				FD66C17D22E1FC1F00E35B5F /* ExampleApp */,
+				FDCC0C0D20FCEC5700092F44 /* Sources */,
 				FD75387120FCBCC700F99D83 /* MHNetwork */,
 				FD66C21A22E205AC00E35B5F /* MHNetworkTests */,
 				FD75387020FCBCC700F99D83 /* Products */,
@@ -414,24 +427,18 @@
 		FD75387120FCBCC700F99D83 /* MHNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				FDCC0C0D20FCEC5700092F44 /* Network */,
 				FD75387220FCBCC700F99D83 /* MHNetwork.h */,
 				FD75387320FCBCC700F99D83 /* Info.plist */,
 			);
 			path = MHNetwork;
 			sourceTree = "<group>";
 		};
-		FDCC0C0D20FCEC5700092F44 /* Network */ = {
+		FDCC0C0D20FCEC5700092F44 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FD75388A20FCBCF100F99D83 /* Environment.swift */,
-				FD75388B20FCBCF100F99D83 /* Response.swift */,
-				FD75388C20FCBCF100F99D83 /* Request.swift */,
-				FDA192B120FE4944001C586F /* Operations.swift */,
-				FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */,
-				FD1F50ED2105D7C900313702 /* Helpers */,
+				FD69AFCC22F856F100A3FDDD /* MHNetwork */,
 			);
-			path = Network;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
