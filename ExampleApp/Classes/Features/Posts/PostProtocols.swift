@@ -15,7 +15,7 @@ protocol PostPresenterProtocol: class {
 protocol PostInteractorProtocol: class {
 
     var presenter: PostPresenterProtocol?  { get set }
-    func getPosts(userId: String, onCompletion:  @escaping ([Post]) -> Void, onError: @escaping  (ErrorItem) -> Void)
+    func getPosts(userId: String, onCompletion:  @escaping ([Post]) -> Void, onError: @escaping  (NetworkError) -> Void)
 }
 
 //MARK: View -

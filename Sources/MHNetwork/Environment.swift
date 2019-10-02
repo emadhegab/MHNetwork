@@ -48,7 +48,7 @@ public protocol Dispatcher {
     ///
     /// - Parameter request: request to execute
     /// - Returns: promise
-    func execute(request: Request, completion: @escaping (Response) -> Void,
-                 onError: @escaping (ErrorItem) -> Void) throws
+    func execute(request: Request, completion:
+    @escaping (Result<Response, NetworkError>) -> Void) throws
 
 }

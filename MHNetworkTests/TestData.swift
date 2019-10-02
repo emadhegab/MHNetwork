@@ -9,7 +9,7 @@
 import Foundation
 @testable import MHNetwork
 
-let sampleURL = "https://jsonplaceholder.typicode.com"
+let sampleURL = "http://localhost:8080"
 
 struct TestData {
     static let succeededHttpResponse = HTTPURLResponse(url: URL(string: sampleURL)!,

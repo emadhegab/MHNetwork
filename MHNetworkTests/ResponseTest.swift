@@ -33,8 +33,12 @@ class ResponseTest: XCTestCase {
         let response = Response((r: TestData.succeededHttpResponse, data: nil, error: nil), for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.ok)
-            exp.fulfill()
+            switch error {
+            case .error(let code, _, _):
+                XCTAssertEqual(code, HTTPStatusCodes.ok)
+                exp.fulfill()
+            }
+
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -51,9 +55,13 @@ class ResponseTest: XCTestCase {
                                 for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.internalServerError)
-            XCTAssertEqual(error.data, bodyContent.data(using: .utf8))
-            exp.fulfill()
+            switch error {
+                       case .error(let code,  _, let data):
+                           XCTAssertEqual(code, HTTPStatusCodes.internalServerError)
+                           XCTAssertEqual(data, bodyContent.data(using: .utf8))
+                           exp.fulfill()
+                       }
+
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -70,8 +78,11 @@ class ResponseTest: XCTestCase {
                                 for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.internalServerError)
-            exp.fulfill()
+             switch error {
+             case .error(let code,  _, _):
+               XCTAssertEqual(code, HTTPStatusCodes.internalServerError)
+                exp.fulfill()
+            }
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -89,8 +100,11 @@ class ResponseTest: XCTestCase {
                                 for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.internalServerError)
-            exp.fulfill()
+            switch error {
+             case .error(let code,  _, _):
+                XCTAssertEqual(code, HTTPStatusCodes.internalServerError)
+                exp.fulfill()
+            }
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -108,8 +122,11 @@ class ResponseTest: XCTestCase {
                                 for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.internalServerError)
-            exp.fulfill()
+            switch error {
+             case .error(let code,  _, _):
+                XCTAssertEqual(code, HTTPStatusCodes.internalServerError)
+                exp.fulfill()
+            }
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -121,8 +138,11 @@ class ResponseTest: XCTestCase {
         let response = Response((r: TestData.unspecifiedHttpResponse, data: nil, error: nil), for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.unspecified)
-            exp.fulfill()
+            switch error {
+             case .error(let code,  _, _):
+                XCTAssertEqual(code, HTTPStatusCodes.unspecified)
+                exp.fulfill()
+            }
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -135,9 +155,12 @@ class ResponseTest: XCTestCase {
         let response = Response((r: TestData.unAuthorizedHttpResponse, data: bodyContent.data(using: .utf8), error: nil), for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.unauthorized)
-            XCTAssertEqual(error.data, bodyContent.data(using: .utf8))
-            exp.fulfill()
+            switch error {
+             case .error(let code,  _, let data):
+                XCTAssertEqual(code, HTTPStatusCodes.unauthorized)
+                XCTAssertEqual(data, bodyContent.data(using: .utf8))
+                exp.fulfill()
+            }
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -150,9 +173,12 @@ class ResponseTest: XCTestCase {
         let response = Response((r: TestData.failedHttpResponse, data: bodyContent.data(using: .utf8), error: nil), for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.internalServerError)
-            XCTAssertEqual(error.data, bodyContent.data(using: .utf8))
-            exp.fulfill()
+            switch error {
+             case .error(let code,  _, let data):
+                XCTAssertEqual(code, HTTPStatusCodes.internalServerError)
+                XCTAssertEqual(data, bodyContent.data(using: .utf8))
+                exp.fulfill()
+            }
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")
         }
@@ -165,8 +191,11 @@ class ResponseTest: XCTestCase {
         let response = Response((r: nil, data: bodyContent.data(using: .utf8), error: nil), for: RequestMock())
         switch response {
         case .error(let error):
-            XCTAssertEqual(error.code, HTTPStatusCodes.internalServerError)
-            exp.fulfill()
+            switch error {
+             case .error(let code, _, _):
+                XCTAssertEqual(code, HTTPStatusCodes.internalServerError)
+                exp.fulfill()
+            }
 
         default:
             XCTFail("Response type should be of .error instead of \(type(of: response))")

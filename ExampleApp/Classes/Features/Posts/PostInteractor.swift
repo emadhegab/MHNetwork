@@ -9,14 +9,17 @@
 class PostInteractor: PostInteractorProtocol {
 
     weak var presenter: PostPresenterProtocol?
-    func getPosts(userId: String, onCompletion: @escaping ([Post]) -> Void, onError: @escaping (ErrorItem) -> Void) {
+    func getPosts(userId: String, onCompletion: @escaping ([Post]) -> Void, onError: @escaping (NetworkError) -> Void) {
         let dispatcher = Container.shared.createNetworkDispatcher()
         let getPostsTask = GetPostsTasks<[Post]>(userId: userId)
-        
-        getPostsTask.execute(in: dispatcher, completed: { (response) in
-            onCompletion(response)
-        }) { (error) in
-            onError(error)
+
+        getPostsTask.execute(in: dispatcher) { (result) in
+            switch result {
+            case .success(let posts):
+                onCompletion(posts)
+            case .failure(let error):
+                onError(error)
+            }
         }
     }
 }
