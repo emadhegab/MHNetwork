@@ -13,7 +13,6 @@
 		FD66C17F22E1FC1F00E35B5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C17E22E1FC1F00E35B5F /* AppDelegate.swift */; };
 		FD66C18622E1FC2000E35B5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD66C18522E1FC2000E35B5F /* Assets.xcassets */; };
 		FD66C18922E1FC2000E35B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD66C18722E1FC2000E35B5F /* LaunchScreen.storyboard */; };
-		FD66C1AD22E1FF6300E35B5F /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1AC22E1FF6300E35B5F /* Error+Extensions.swift */; };
 		FD66C1D722E2014900E35B5F /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B122E2014900E35B5F /* Container.swift */; };
 		FD66C1D822E2014900E35B5F /* PostRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B322E2014900E35B5F /* PostRequests.swift */; };
 		FD66C1D922E2014900E35B5F /* GetPostTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C1B422E2014900E35B5F /* GetPostTask.swift */; };
@@ -94,7 +93,6 @@
 		FD66C18522E1FC2000E35B5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD66C18822E1FC2000E35B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD66C18A22E1FC2000E35B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD66C1AC22E1FF6300E35B5F /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		FD66C1B122E2014900E35B5F /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		FD66C1B322E2014900E35B5F /* PostRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequests.swift; sourceTree = "<group>"; };
 		FD66C1B422E2014900E35B5F /* GetPostTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPostTask.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				795FE051B623C5165D3EB040 /* Pods-MHNetworkTests.debug.xcconfig */,
 				FB1847B68DD41EE3C228B8FC /* Pods-MHNetworkTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -320,7 +317,6 @@
 		FD66C1D422E2014900E35B5F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FD66C1AC22E1FF6300E35B5F /* Error+Extensions.swift */,
 				FD66C1D522E2014900E35B5F /* TableViewCell+Extensions.swift */,
 				FD66C1D622E2014900E35B5F /* UIColor+Extension.swift */,
 			);
@@ -389,10 +385,24 @@
 			path = MHNetworkTests;
 			sourceTree = "<group>";
 		};
+		FD69AFCC22F856F100A3FDDD /* MHNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				FD75388A20FCBCF100F99D83 /* Environment.swift */,
+				FD75388B20FCBCF100F99D83 /* Response.swift */,
+				FD75388C20FCBCF100F99D83 /* Request.swift */,
+				FDA192B120FE4944001C586F /* Operations.swift */,
+				FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */,
+				FD1F50ED2105D7C900313702 /* Helpers */,
+			);
+			path = MHNetwork;
+			sourceTree = "<group>";
+		};
 		FD75386520FCBCC700F99D83 = {
 			isa = PBXGroup;
 			children = (
 				FD66C17D22E1FC1F00E35B5F /* ExampleApp */,
+				FDCC0C0D20FCEC5700092F44 /* Sources */,
 				FD75387120FCBCC700F99D83 /* MHNetwork */,
 				FD66C21A22E205AC00E35B5F /* MHNetworkTests */,
 				FD75387020FCBCC700F99D83 /* Products */,
@@ -414,24 +424,18 @@
 		FD75387120FCBCC700F99D83 /* MHNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				FDCC0C0D20FCEC5700092F44 /* Network */,
 				FD75387220FCBCC700F99D83 /* MHNetwork.h */,
 				FD75387320FCBCC700F99D83 /* Info.plist */,
 			);
 			path = MHNetwork;
 			sourceTree = "<group>";
 		};
-		FDCC0C0D20FCEC5700092F44 /* Network */ = {
+		FDCC0C0D20FCEC5700092F44 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FD75388A20FCBCF100F99D83 /* Environment.swift */,
-				FD75388B20FCBCF100F99D83 /* Response.swift */,
-				FD75388C20FCBCF100F99D83 /* Request.swift */,
-				FDA192B120FE4944001C586F /* Operations.swift */,
-				FD75388F20FCBCF100F99D83 /* NetworkDispatcher.swift */,
-				FD1F50ED2105D7C900313702 /* Helpers */,
+				FD69AFCC22F856F100A3FDDD /* MHNetwork */,
 			);
-			path = Network;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -681,7 +685,6 @@
 				FD66C1EB22E2014900E35B5F /* PostPresenter.swift in Sources */,
 				FD66C1F022E2014900E35B5F /* PostCell.swift in Sources */,
 				FD66C1E022E2014900E35B5F /* UserCell.swift in Sources */,
-				FD66C1AD22E1FF6300E35B5F /* Error+Extensions.swift in Sources */,
 				FD66C1E222E2014900E35B5F /* UserRouter.swift in Sources */,
 				FD66C1D922E2014900E35B5F /* GetPostTask.swift in Sources */,
 				FD66C1DE22E2014900E35B5F /* PostProtocols.swift in Sources */,
@@ -966,6 +969,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedarkdimension.MHNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -992,6 +996,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thedarkdimension.MHNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

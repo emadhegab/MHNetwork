@@ -18,25 +18,28 @@ public class NetworkDispatcher: Dispatcher {
         self.session = session
     }
 
-    public func execute(request: Request, completion: @escaping (Response) -> Void,
-                        onError: @escaping (ErrorItem) -> Void) throws {
+    public func execute(request: Request, completion:
+                        @escaping (Result<Response, NetworkError>) -> Void) throws {
 
-        try self.prepareURLRequest(for: request, onComplete: { [weak self] (rq) in
+        try self.prepareURLRequest(for: request, onComplete: { [weak self] (req) in
             guard let `self` = self else { return }
-            let dataTask = self.session.dataTask(with: rq, completionHandler: { (data, urlResponse, error) in
-                let response = Response( (urlResponse as? HTTPURLResponse, data, error), for: request)
-                completion(response)
-            })
-            dataTask.resume()
-        }, onError: {error in
-            onError(error)
+            switch req {
+            case .success(let urlRequest):
+                let dataTask = self.session.dataTask(with: urlRequest, completionHandler: { (data, urlResponse, error) in
+                    let response = Response( (urlResponse as? HTTPURLResponse, data, error), for: request)
+                    completion(.success(response))
+                })
+                dataTask.resume()
+            case .failure(let error):
+                completion(.failure(.error(code: nil, error: error, data: nil)))
+            }
+
         })
 
     }
 
     private func prepareURLRequest(for request: Request,
-                                   onComplete: @escaping (URLRequest) -> Void,
-                                   onError: @escaping (ErrorItem) -> Void) throws {
+                                   onComplete: @escaping (Result<URLRequest, NetworkError>) -> Void) throws {
         // Compose the url
         let fullUrl = "\(environment.host)/\(request.path)"
         var urlRequest: URLRequest!
@@ -49,7 +52,7 @@ public class NetworkDispatcher: Dispatcher {
                 let jsonData = try JSONSerialization.data(withJSONObject: params!, options: .init(rawValue: 0))
                 urlRequest.httpBody = jsonData
                 createHeadersInRequest(urlRequest, request, onComplete: { (urlRequest) in
-                    onComplete(urlRequest)
+                    onComplete(.success(urlRequest))
                 })
 
             }
@@ -60,7 +63,7 @@ public class NetworkDispatcher: Dispatcher {
                 return URLQueryItem(name: element.key, value: element.value as? String)
             })
             guard var components = URLComponents(string: fullUrl), let url = URL(string: fullUrl) else {
-                onError((HTTPStatusCodes.notFound, nil, nil))
+                onComplete(.failure(.error(code: HTTPStatusCodes.notFound, error: nil, data: nil)))
                 return
             }
             components.queryItems = queryParams
@@ -70,7 +73,7 @@ public class NetworkDispatcher: Dispatcher {
             urlRequest = URLRequest(url: url)
             urlRequest.url = components.url
             createHeadersInRequest(urlRequest, request, onComplete: { (urlRequest) in
-                onComplete(urlRequest)
+                onComplete(.success(urlRequest))
             })
         }
     }

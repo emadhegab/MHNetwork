@@ -15,7 +15,7 @@ protocol UserPresenterProtocol: class {
 protocol UserInteractorProtocol: class {
     
     var presenter: UserPresenterProtocol?  { get set }
-    func getUsers(onCompletion:  @escaping ([User]) -> Void, onError: @escaping  (ErrorItem) -> Void)
+    func getUsers(onCompletion:  @escaping ([User]) -> Void, onError: @escaping  (NetworkError) -> Void)
 }
 
 //MARK: View -

@@ -103,7 +103,13 @@ public enum HTTPStatusCodes: Int {
 }
 
 extension HTTPStatusCodes {
-    public var convertStatusCodeToErrorItem: ErrorItem {
-        return (self, nil, nil)
+    public var convertStatusCodeToErrorItem: NetworkError {
+        return .error(code: self, error: nil, data: nil)
+    }
+}
+
+extension Error {
+    var convertToErrorItem: NetworkError {
+        return .error(code: nil, error: self, data: nil)
     }
 }

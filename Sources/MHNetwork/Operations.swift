@@ -14,5 +14,5 @@ public protocol Operations {
 
     var request: Request { get }
 
-    func execute(in dispatcher: Dispatcher, completed: @escaping (Output) -> Void, onError: @escaping (ErrorItem) -> Void)
+    func execute(in dispatcher: Dispatcher, completed: @escaping (Result<Output,NetworkError>) -> Void)
 }
