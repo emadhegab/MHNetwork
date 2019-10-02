@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Nimble
 
 @testable import MHNetwork
 
@@ -19,7 +18,7 @@ private enum MockQuoteRequest: Request {
     case getRandomQuote
 
     var path: String {
-        return "quotes/random/"
+        return "users"
     }
 
     var method: HTTPMethod {
@@ -70,29 +69,32 @@ private class MockQuoteTask<T: Codable>: Operations {
         return MockQuoteRequest.getRandomQuote
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
-
+    func execute(in dispatcher: Dispatcher, completed: @escaping (Result<T, NetworkError>) -> Void) {
+        
         do {
-            try dispatcher.execute(request: self.request, completion: { (response) in
-                switch response {
-                case .data(let data):
-                    do {
-                        let decoder = JSONDecoder()
-                        //                        decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        //                        uncomment this in case you have some json properties in Snake Case and you just want to decode it to camel Case... workes only for swift 4.1
-                        let object = try decoder.decode(T.self, from: data)
-                        completed(object)
-                    } catch let error {
-                        onError((nil, error, nil))
-                    }
-                    break
-                case .error(let error):
-                    onError(error)
-                    break
+            try dispatcher.execute(request: self.request, completion: { (result) in
+                switch result {
+                case .success(let response):
+                    switch response {
+                        case .data(let data):
+                            do {
+                                let decoder = JSONDecoder()
+                                let object = try decoder.decode(T.self, from: data)
+                                completed(.success(object))
+                            } catch let error {
+                                print("error Parsing with Error: \(error.localizedDescription)")
+                            }
+                            break
+                        case .error(let error):
+                            completed(.failure(error))
+                            break
+                        }
+                case .failure(let error):
+                    completed(.failure(error))
                 }
-            }, onError: onError)
-        } catch {
-            onError((nil, error, nil))
+            })
+        } catch let error{
+            completed(.failure(.error(code: nil, error: error, data: nil)))
         }
     }
 }
@@ -105,33 +107,32 @@ private class MockBadTask<T: Codable>: Operations {
         return MockBadRequest(body: body)
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
+    func execute(in dispatcher: Dispatcher, completed: @escaping (Result<T, NetworkError>) -> Void){
         do {
-
-
-            
-            try dispatcher.execute(request: request, completion: { (response) in
-                switch response {
-
-                case .data(let data):
-                    do {
-                        let decoder = JSONDecoder()
-                        let t = try decoder.decode(T.self, from: data)
-                        completed(t)
-                    } catch let error {
-                        onError((nil, error, nil))
+           try dispatcher.execute(request: self.request, completion: { (result) in
+                    switch result {
+                    case .success(let response):
+                        switch response {
+                            case .data(let data):
+                                do {
+                                    let decoder = JSONDecoder()
+                                    let object = try decoder.decode(T.self, from: data)
+                                    completed(.success(object))
+                                } catch let error {
+                                    print("error Parsing with Error: \(error.localizedDescription)")
+                                }
+                                break
+                            case .error(let error):
+                                completed(.failure(error))
+                                break
+                            }
+                    case .failure(let error):
+                        completed(.failure(error))
                     }
-                case .error(let error):
-                    onError(error)
-                    break
-                }
-            }, onError: { (error) in
-                onError(error)
-            })
-
-        } catch {
-            onError((nil, error, nil))
-        }
+                })
+            } catch let error{
+                completed(.failure(.error(code: nil, error: error, data: nil)))
+            }
     }
 }
 
@@ -170,59 +171,41 @@ class NetworkDispatcherTests: XCTestCase {
     }
 
     func testBadURL() {
+         let exp = expectation(description: "fail")
         env = Environment(host: "BADURL")
         env.headers = ["Authorization" : "1234"]
         let session = URLSession(configuration: URLSessionConfiguration.default)
         networkDispatcher = NetworkDispatcher(environment: env, session: session)
         var checker = false
-        mockTask.exeute(in: networkDispatcher, completed: { _ in
-            XCTFail("Should not succeed")
-        }) { (error) in
-            checker = true
+        mockTask.execute(in: networkDispatcher) { (result) in
+            switch result {
+            case .success(_):
+                XCTFail("Should not success ")
+            case .failure(_):
+                checker = true
+                exp.fulfill()
+            }
         }
-        expect(checker).toEventually(beTrue())
+        waitForExpectations(timeout: timeout, handler: nil)
+        XCTAssertEqual(checker, true)
+
     }
 
     func testBadRequest() {
+        let exp = expectation(description: "fail")
         var checker = false
-        mockBadTask.exeute(in: networkDispatcher, completed: { _ in
-            XCTFail("Should not succeed")
-        }) { (error) in
-            checker = true
-        }
-
-        expect(checker).toEventually(beTrue())
-    }
-
-    func testNetworkConnectability() {
-        let expectation = self.expectation(description: "network connected")
-
-        let networkDispatcher = NetworkDispatcher(environment: env, session: URLSession(configuration: .default))
-        let quoteTask = MockQuoteTask<MockQuote>()
-        quoteTask.exeute(in: networkDispatcher, completed: { (quote) in
-            DispatchQueue.main.async {
-                XCTAssertNotNil(quote)
-                expectation.fulfill()
+        mockBadTask.execute(in: networkDispatcher) { (result) in
+            switch result {
+            case .success(_):
+                XCTFail("Should not success ")
+            case .failure(_):
+                checker = true
+                exp.fulfill()
             }
-        }) { (error) in
-            XCTFail()
         }
         waitForExpectations(timeout: timeout, handler: nil)
+        XCTAssertEqual(checker, true)
     }
 
-    func testNetworkDispacherWithURLQuery() {
-        let expectation = self.expectation(description: "network Dispatcher")
-        mockTask.body = false
-        mockTask.exeute(in: networkDispatcher, completed: { _ in
-
-            expectation.fulfill()
-        }, onError: { error in
-
-            XCTFail("Request shouldn't fail")
-        })
-
-        waitForExpectations(timeout: timeout, handler: nil)
-    }
-    
 }
 

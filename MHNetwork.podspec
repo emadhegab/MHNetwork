@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MHNetwork"
-  s.version      = "0.0.4"
+  s.version      = "1.1"
   s.summary      = "An implementation for protocol oriented network layer"
-
+  s.swift_version = "5.0"
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
@@ -86,7 +86,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "MHNetwork/**/*.{swift,plist}"
+  s.source_files  = "Classes", "Sources/MHNetwork/**/*.{swift}"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -128,6 +128,5 @@ Pod::Spec.new do |s|
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "SwiftyJSON"
 
 end
