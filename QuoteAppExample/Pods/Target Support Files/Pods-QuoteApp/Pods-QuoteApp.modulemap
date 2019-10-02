@@ -1,6 +1,0 @@
-framework module Pods_QuoteApp {
-  umbrella header "Pods-QuoteApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
