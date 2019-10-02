@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MHNetwork"
-  s.version      = "1.0.3"
+  s.version      = "1.1"
   s.summary      = "An implementation for protocol oriented network layer"
   s.swift_version = "5.0"
   # This description is used to generate tags and improve search results.
