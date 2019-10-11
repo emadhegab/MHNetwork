@@ -19,6 +19,8 @@ or in your podfile
 pod 'MHNetwork'
 ```
 
+also you can use `Swift Package Manager`
+
 #### usage
 
 let's say you have movies API .. and you need to make a request call to get the movies list..
@@ -68,30 +70,35 @@ class QuoteTask <T: Codable>: Operations {
         return MoviesRequests.getMoviesList
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (T) -> Void, onError: @escaping (ErrorItem) -> Void) {
+    func exeute(in dispatcher: Dispatcher, completed: @escaping (Result<T, NetworkError>) -> Void) {
 
         do {
-            try dispatcher.execute(request: self.request, completion: { (response) in
-                switch response {
-                case .data(let data):
-                    do {
+            try dispatcher.execute(request: self.request, completion: { (result) in
+               switch result {
+                               case .success(let response):
+                                   switch response {
+                                       case .data(let data):
+                                           do {
+
                         let decoder = JSONDecoder()
                         //                        decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        //                        uncomment this in case you have some json properties in Snake Case and you just want to decode it to camel Case... workes only for swift 4.1
+                        //                        uncomment this in case you have some json properties in Snake Case and you just want to decode it to camel Case... workes only for swift 4.1 or higher
                         let object = try decoder.decode(T.self, from: data)
-                        completed(object)
-                    } catch let error {
-                       onError((nil, error, nil))
-                    }
-                    break
-                case .error(_, let networkError):
-                  onError(error)
-                  break
-
-                }
-            }, onError: onError)
+                                               completed(.success(object))
+                                           } catch let error {
+                                               print("error Parsing with Error: \(error.localizedDescription)")
+                                           }
+                                           break
+                                       case .error(let error):
+                                           completed(.failure(error))
+                                           break
+                                       }
+                               case .failure(let error):
+                                   completed(.failure(error))
+                               }
+            })
         } catch {
-           onError((nil, error, nil))
+          completed(.failure(.error(code: nil, error: error, data: nil)))
         }
     }
 }
@@ -105,11 +112,14 @@ func getMoviesList(onComplete: @escaping (Movie) -> Void, onError: @escaping (Er
     let environment = Environment(host: "https://imdb.com/api")
     let networkDispatcher = NetworkDispatcher(environment: environment, session: URLSession(configuration: .default))
     let moviesTask = MoviesTasks<Movie>() // Movie Model should be codable
-    moviesTask.exeute(in: networkDispatcher, completed: { (movies) in
-        onComplete(movies)        
-    }) { (error) in
-        print(error)
-    }
+    moviesTask.exeute(in: networkDispatcher) { (result) in
+          switch result {
+            case .success(let users):
+                onCompletion(movies)
+            case .failure(let error):
+                onError(error)
+            }
+         })
 }
 ```
 
@@ -119,7 +129,7 @@ one last note.. when creating the instance of MoviesTask you noticed the comment
 
 ### TODO://
 - [ ] need to support JSON return type without depending on any 3rd party
-- [ ] need to fix & clean the example test cases and code
+- [x] need to fix & clean the example test cases and code
 
 
 ### Contribute://
