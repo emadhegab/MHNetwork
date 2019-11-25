@@ -70,7 +70,7 @@ class QuoteTask <T: Codable>: Operations {
         return MoviesRequests.getMoviesList
     }
 
-    func exeute(in dispatcher: Dispatcher, completed: @escaping (Result<T, NetworkError>) -> Void) {
+    func execute(in dispatcher: Dispatcher, completed: @escaping (Result<T, NetworkError>) -> Void) {
 
         do {
             try dispatcher.execute(request: self.request, completion: { (result) in
@@ -112,7 +112,7 @@ func getMoviesList(onComplete: @escaping (Movie) -> Void, onError: @escaping (Er
     let environment = Environment(host: "https://imdb.com/api")
     let networkDispatcher = NetworkDispatcher(environment: environment, session: URLSession(configuration: .default))
     let moviesTask = MoviesTasks<Movie>() // Movie Model should be codable
-    moviesTask.exeute(in: networkDispatcher) { (result) in
+    moviesTask.execute(in: networkDispatcher) { (result) in
           switch result {
             case .success(let users):
                 onCompletion(movies)
