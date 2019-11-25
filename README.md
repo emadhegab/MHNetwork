@@ -64,7 +64,7 @@ then add your task
 
 ```
 
-class QuoteTask <T: Codable>: Operations {
+class MovieTasks <T: Codable>: Operations {
 
     var request: Request {
         return MoviesRequests.getMoviesList
